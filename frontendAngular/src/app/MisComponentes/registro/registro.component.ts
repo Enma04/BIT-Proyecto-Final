@@ -66,7 +66,7 @@ export class RegistroComponent implements OnInit {
   //y el ngOnChanges. (lo pusimos aqui para ver el nivel de carga)
   ngOnInit(): void {
     console.log("Cargando el OnInit");
-    this.ListarUsuarios();
+    //this.ListarUsuarios();
   }
 
 
@@ -112,6 +112,11 @@ export class RegistroComponent implements OnInit {
   //Mostrar u Ocultar el registro
   MostrarTabla() {
     this.mostrar_tabla = !this.mostrar_tabla;
+
+    if (this.mostrar_tabla) {
+      this.ListarUsuarios();
+    }
+
   }
 
 
@@ -212,7 +217,7 @@ export class RegistroComponent implements OnInit {
             this.cedula = "";
             this.nombre = "";
             this.apellido = "";
-            this.edad = 0;
+            this.edad;
             this.direccion = "";
             this.telefono = "";
             this.estadocivil = "";

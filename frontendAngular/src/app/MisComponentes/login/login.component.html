@@ -1,59 +1,57 @@
 <app-menu></app-menu>
 
-<div class="ventana-flotante2"></div>
-
-<p>login works!</p>
-
-<div id="registroForm">
-  <div class="form-group">
-    <label for="cedula">Cedula</label>
-    <input
-      type="text"
-      class="form-control"
-      id="cedula"
-      placeholder="Ej. 11223344"
-      [(ngModel)]="cedula"
-    />
-  </div>
-
-  <div class="form-group">
-    <label for="exampleInputEmail1">Correo electónico</label>
-    <input
-      type="email"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-      placeholder="Enter email"
-      [(ngModel)]="email"
-    />
-    <small id="emailHelp" class="form-text text-muted"
-      >No comparata información personal con nadie.</small
-    >
-  </div>
-
-  <div class="form-group">
-    <label for="pass">Contraseña</label>
-    <input
-      type="password"
-      class="form-control"
-      id="pass"
-      placeholder="Enter secret password"
-    />
-  </div>
-
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="Check" />
-    <label class="form-check-label" for="Check">Check me out</label>
-  </div>
-
-  <!-- Lista de botones -->
-  <div class="lista-botones">
-    <!-- Botón Mostrar/Ocultar -->
-    <div class="boton-func">
-      <button type="submit" class="btn btn-primary" (click)="iniciarSesion()">
-        Iniciar sesion
-      </button>
+<div class="ventana-flotante2">
+  <div id="registroForm">
+    <div class="form-group">
+      <label for="cedula">Cedula</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cedula"
+        placeholder="Ej. 11223344"
+        [(ngModel)]="cedula"
+      />
     </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Correo electónico</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        placeholder="Enter email"
+        [(ngModel)]="email"
+      />
+      <small id="emailHelp" class="form-text text-muted"
+        >No comparata información personal con nadie.</small
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="pass">Contraseña</label>
+      <input
+        type="password"
+        class="form-control"
+        id="pass"
+        placeholder="Enter secret password"
+      />
+    </div>
+
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="Check" />
+      <label class="form-check-label" for="Check">Check me out</label>
+    </div>
+
+    <!-- Lista de botones -->
+    <div class="lista-botones">
+      <!-- Botón Mostrar/Ocultar -->
+      <div class="boton-func">
+        <button type="submit" class="btn btn-primary" (click)="iniciarSesion()">
+          Iniciar sesion
+        </button>
+      </div>
+    </div>
+    <!-- Fin de la lista de botones -->
   </div>
-  <!-- Fin de la lista de botones -->
 </div>

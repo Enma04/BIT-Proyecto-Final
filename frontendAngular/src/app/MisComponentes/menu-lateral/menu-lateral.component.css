@@ -1,19 +1,23 @@
 #menulateral{
     position: absolute;
-    top: 0;
+    top: 55px;
     text-align: center;
     width: 150px;
     box-shadow: 3px 4px 5px 0px rgb(0 0 0 / 47%);
     background: rgb(209, 96, 76);
-    height: 100vh;
+    height: calc(100vh - 55px) ;
 }
 
 .item{
     width: 100%;
     height: 55px;
     color: bisque;
-    border-bottom: solid 0.5px bisque;
+    border-top: solid 0.5px bisque;
     cursor: pointer;
+}
+
+.item:last-child{
+    border-bottom: solid 0.5px bisque;
 }
 
 .item:hover{
@@ -22,7 +26,7 @@
 }
 
 .boton-background{
-    width: 100%;
+    width: 100% - 150px;
     height: 55px;
     background-color: rgb(209, 96, 76);
     box-shadow: 3px 4px 5px 0px rgb(0 0 0 / 47%);

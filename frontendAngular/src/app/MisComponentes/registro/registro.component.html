@@ -1,23 +1,19 @@
 <app-menu></app-menu>
 
 <div class="ventana-flotante2">
-  <!-- Lista de botones -->
-  <div class="lista-botones">
-    <!-- Botón Mostrar/Ocultar -->
+  <!--   <div class="lista-botones">
     <div class="boton-func">
       <button type="submit" class="btn btn-primary" (click)="MostrarOcultar()">
         Mostrar/Ocultar
       </button>
     </div>
 
-    <!-- Botón Mostrar tabla -->
     <div class="boton-func">
       <button type="submit" class="btn btn-primary" (click)="MostrarTabla()">
         Listar Usuarios
       </button>
     </div>
   </div>
-  <!-- Fin de la lista de botones -->
 
   <div id="registroForm" *ngIf="mostrar">
     <div class="form-group">
@@ -108,47 +104,19 @@
       <label class="form-check-label" for="Check">Check me out</label>
     </div>
 
-    <!-- Lista de botones -->
     <div class="lista-botones">
-      <!-- Botón Mostrar/Ocultar -->
       <div class="boton-func">
         <button type="submit" class="btn btn-primary" (click)="Registrar()">
           Registrar
         </button>
       </div>
     </div>
-    <!-- Fin de la lista de botones -->
-  </div>
-
-  <!-- TABLA PARA MOSTRAR DATOS -->
-  <table class="table" *ngIf="mostrar_tabla">
-    <thead class="thead-light">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Cedula</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Apellido</th>
-        <th scope="col">Edad</th>
-        <th scope="col">Correo</th>
-        <th scope="col">Contraseña</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of ListaDatos">
-        <th scope="row">1</th>
-        <td>{{ item.cedula }}</td>
-        <td>{{ item.nombre }}</td>
-        <td>{{ item.apellido }}</td>
-        <td>{{ item.edad }}</td>
-        <td>{{ item.email }}</td>
-        <td>{{ item.password }}</td>
-      </tr>
-    </tbody>
-  </table>
+  </div> -->
 
   <!-- CÓDIGO DE MARCE -->
 
   <div id="registro2">
+    <h3 id="title-h3">Registro de usuario</h3>
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <label for="validationDefault01">Nombre</label>
@@ -297,8 +265,47 @@
         </label>
       </div>
     </div>
-    <button class="btn btn-primary" type="submit" (click)="Registrar()">
-      Registrar
-    </button>
+    <div class="botones-reg">
+      <div class="boton-func">
+        <button class="btn btn-primary" type="submit" (click)="Registrar()">
+          Registrar
+        </button>
+      </div>
+
+      <!-- Botón Mostrar tabla -->
+      <div class="boton-func">
+        <button type="submit" class="btn btn-primary" (click)="MostrarTabla()">
+          Listar Usuarios
+        </button>
+      </div>
+    </div>
   </div>
+
+  <!-- TABLA PARA MOSTRAR DATOS -->
+  <table class="table" *ngIf="mostrar_tabla">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Contraseña</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of ListaDatos">
+        <th scope="row">1</th>
+        <td>{{ item.cedula }}</td>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.apellido }}</td>
+        <td>{{ item.edad }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.password }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Fin ventana flotante -->
 </div>

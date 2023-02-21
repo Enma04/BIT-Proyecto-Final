@@ -1,5 +1,6 @@
 #bloque-mensajes{
     position: sticky;
+    width: 100%;
 }
 
 .caja-msj{

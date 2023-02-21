@@ -1,15 +1,29 @@
-
-#registroForm {
-    width: 400px;
-    margin: 00px auto;
-    padding: 20px;
-    border-radius: 8px;
+div#registro2 {
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    border: solid 1px #ebebed;
+    padding: 40px;
+    border-radius: 15px;
     box-shadow: 0px 10px 34px -13px rgba(0, 0, 0, 0.74);
+}
+
+#title-h3{
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 10px;
 }
 
 .lista-botones{
     display: flex;
     justify-content: center;
+    margin-top: 10px;
+}
+
+.botones-reg{
+    display: flex;
+    justify-content: left;
     margin-top: 10px;
 }
 
@@ -33,15 +47,4 @@ div#espacio {
     margin-top: 15px;
     margin-bottom: 20px;
     text-align: justify;
-}
-
-div#registro2 {
-    margin-top: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-bottom: 5%;
-    border: solid 1px #ebebed;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0px 10px 34px -13px rgba(0, 0, 0, 0.74);
 }
