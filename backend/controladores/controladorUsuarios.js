@@ -31,6 +31,7 @@ usuariosController.Guardar = function (peticion, respuesta) {
         direccion    :peticion.body.direccion,
         telefono     :peticion.body.telefono,
         estadocivil  :peticion.body.estadocivil,
+        email        :peticion.body.email,
         password     :SHA256(peticion.body.password + configuracion.pass),
     }
 

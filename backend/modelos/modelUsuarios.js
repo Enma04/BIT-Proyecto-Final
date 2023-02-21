@@ -18,14 +18,15 @@ const esquema = mongoose.Schema;
 
 //Creamos una variables con el esquema anterior
 var esquemaUsuarios = new esquema({
-    cedula:         String,
-    nombre:         String,
-    apellido:       String,
-    edad:           Number,
-    direccion:      String,
-    telefono:       String,
-    estadocivil:    String,
-    password:       String,
+    cedula         :String,
+    nombre         :String,
+    apellido       :String,
+    edad           :Number,
+    direccion      :String,
+    telefono       :String,
+    estadocivil    :String,
+    email          :String,
+    password       :String,
 })
 
 //Creamos el modelo (unión entre el nombre de la colección y el esquema de la colección)
@@ -45,6 +46,7 @@ usuariosModel.Guardar = function (data, callback) {
     instancia.direccion =    data.direccion;
     instancia.telefono =     data.telefono;
     instancia.estadocivil =  data.estadocivil;
+    instancia.email =        data.email;
     instancia.password =     SHA256(data.password + configuracion.pass);
 
     instancia.save((error, correcto) => {

@@ -217,7 +217,7 @@ export class RegistroComponent implements OnInit {
             this.cedula = "";
             this.nombre = "";
             this.apellido = "";
-            this.edad;
+            this.edad = 0;
             this.direccion = "";
             this.telefono = "";
             this.estadocivil = "";
