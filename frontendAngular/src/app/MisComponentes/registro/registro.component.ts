@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';  //Se importa el OnInit
+import { Router } from '@angular/router';
 import { empty } from 'rxjs';
 import { Persona } from 'src/app/interfaces/persona';
 import { MensajesService } from 'src/app/servicios/mensajes.service';
@@ -89,7 +90,7 @@ export class RegistroComponent implements OnInit {
   indicarle al constructor que se van a usar estos servicios
   */
 
-  constructor(public msj:MensajesService, private PeticionDeLlegada:PeticionService){ 
+  constructor(public msj:MensajesService, private PeticionDeLlegada:PeticionService, private dir:Router){ 
     console.log("Yo tengo más poder");
   }
 
@@ -118,10 +119,61 @@ export class RegistroComponent implements OnInit {
 
 
 
-
+  //--------------------------------------------------------------------
   //C.R.U.D
+  //--------------------------------------------------------------------
 
-  //Guardar la información
+  //VALIDAR DATOS FRONTEND
+  ValidacionDatosFront():boolean {
+
+    //VALIDACIONES DE LOS DATOS
+    //CEDULA
+    if (this.cedula == "" || this.cedula == null || this.cedula == undefined || this.cedula == " ") {
+        this.msj.Cargar("danger", "El campo Cedula es obligatorio", 4000);
+        return false;
+    }
+
+    else {
+      //PASSWORD
+      if (this.password == "" || this.password == null || this.password == undefined || this.password == " ") {
+        this.msj.Cargar("danger", "El campo Contraseña es obligatorio", 4000);
+        return false;
+      }
+      else {
+        //NOMBRE
+        if (this.nombre == "" || this.nombre == null || this.nombre == undefined || this.nombre == " ") {
+          this.msj.Cargar("danger", "El campo Nombre es obligatorio", 4000);
+          return false;
+        }
+        else {
+          if (this.nombre.length < 4 || this.nombre.length > 20) {
+            this.msj.Cargar("danger", "El campo Nombre debe tener entre 4 y 20 caracteres", 4000);
+            return false;
+          }
+          else {
+            //APELLIDO
+            if (this.apellido == "" || this.apellido == null || this.apellido == undefined || this.apellido == " ") {
+              this.msj.Cargar("danger", "El campo Apellido es obligatorio", 4000);
+              return false;
+            }
+            else {
+              if (this.apellido.length < 4 || this.apellido.length > 20) {
+                this.msj.Cargar("danger", "El campo Apellido debe tener entre 4 y 20 caracteres", 4000);
+                return false;
+              }
+              else {
+                return true;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  } //Fin de la función de validación de datos desde el FrontEnd
+
+
+  //Guardar la información del cliente
   Registrar() {
 
     let post = {
@@ -141,47 +193,42 @@ export class RegistroComponent implements OnInit {
     }
 
 
-    //Petición de tipo Post
-    this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
-      (respuesta: any) => {
+    //VALIDAMOS LA INFORMACIÓN PARA SABER SI SE LE PASA AL BACKEND
 
-        if (respuesta.state == false) {
-          //Cargamos el mensaje de peligro, si falta un campo
-          this.msj.Cargar("danger", respuesta.mensaje, 4000);
-        }
-        else {
-          //Cargamos el mensaje exitoso
-          this.msj.Cargar("success", respuesta.mensaje, 4000);
+    if (this.ValidacionDatosFront()) {
+      //Petición de tipo Post
+      this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
+        (respuesta: any) => {
 
-          //Lo último que se hace (limpiar datos)
-          this.cedula = "";
-          this.nombre = "";
-          this.apellido = "";
-          this.edad = 0;
-          this.direccion = "";
-          this.telefono = "";
-          this.estadocivil = "";
-          this.email = "";
-          this.password = "";
+          if (respuesta.state == false) {
+            //Cargamos el mensaje de peligro, si falta un campo
+            this.msj.Cargar("danger", respuesta.mensaje, 4000);
+          }
+          else {
+            //Cargamos el mensaje exitoso
+            this.msj.Cargar("success", respuesta.mensaje, 4000);
 
-          this.ListarUsuarios();
-        }
+            //Lo último que se hace (limpiar datos)
+            this.cedula = "";
+            this.nombre = "";
+            this.apellido = "";
+            this.edad = 0;
+            this.direccion = "";
+            this.telefono = "";
+            this.estadocivil = "";
+            this.email = "";
+            this.password = "";
+
+            this.ListarUsuarios();
+            this.dir.navigate(["/Login"]); //Enviamos al usuario al Login
+          }
         
       })
+    }
 
-
-
-
-    //console.log(this.nombre);
-    //this.msj.datos.push({ mensaje: "push al array" });
-    //this.msj.miMsj = "Usuario Guardado!";
-    
-    //Hacemos uso de la función que almacena el tipo de mensaje
-    //this.msj.Cargar("success", "Usuario Registrado!", 5000);
-    //this.msj.Cargar( "danger", "Usuario no Registrado!", 6000);
-
-  }
+  } //Fin Función Registrar()
   
+
 
   //Funcion para conectarse al Backend y listar lso usuarios
   ListarUsuarios() {
@@ -198,7 +245,7 @@ export class RegistroComponent implements OnInit {
         this.ListaDatos = respuesta.data;
       })
 
-  }
+  } //Fin de la función: ListarUsuarios()
 
   
 
