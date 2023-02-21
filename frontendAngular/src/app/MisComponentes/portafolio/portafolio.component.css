@@ -1,0 +1,45 @@
+.content-center{
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+div.row{
+    justify-content: center;
+}
+
+.portafolio-container {
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0;
+    border-radius: 2px;
+}
+
+.portafolio-detalle {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    z-index: 9000;
+}
+
+.portafolio-detalle a h2,
+.portafolio-detalle a p {
+    color: white;
+}
+
+.portafolio-detalle h2 {
+    margin-bottom: 0px;
+}
+
+.portafolio-container img {
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.portafolio-container:hover img {
+    -moz-transition: scale(1.2);
+    -webkit-transition: scale(1.2);
+    transition: scale(1.2);
+    transform: scale(1.2);
+}

@@ -1,0 +1,22 @@
+#pie {
+    bottom: 0;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(209, 206, 206);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    min-height: 70px;
+}
+
+div.row{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+}
+
+.separador {
+    margin-bottom: 28px;
+    font-style: italic;
+    text-align: center;
+}

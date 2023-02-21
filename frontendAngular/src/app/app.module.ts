@@ -17,6 +17,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { DashboardComponent } from './MisComponentes/dashboard/dashboard.component';
 import { MenuLateralComponent } from './MisComponentes/menu-lateral/menu-lateral.component';
 import { UsuarioComponent } from './MisComponentes/usuario/usuario.component';
+import { PortafolioComponent } from './MisComponentes/portafolio/portafolio.component';
+import { FooterComponent } from './MisComponentes/footer/footer.component';
 
 //HttpClientModule se encarga de realizar la petición
 //HTTP_INTERCEPTORS es una petición antes de que salga la petición real
@@ -37,7 +39,9 @@ import { UsuarioComponent } from './MisComponentes/usuario/usuario.component';
     MensajesComponent,
     DashboardComponent,
     MenuLateralComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    PortafolioComponent,
+    FooterComponent
   ],
   imports: [
     HttpClientModule,  //Se importa

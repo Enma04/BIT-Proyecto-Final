@@ -8,6 +8,7 @@ import { LoginComponent } from './MisComponentes/login/login.component';
 import { RegistroComponent } from './MisComponentes/registro/registro.component';
 import { DashboardComponent } from './MisComponentes/dashboard/dashboard.component';
 import { UsuarioComponent } from './MisComponentes/usuario/usuario.component';
+import { PortafolioComponent } from './MisComponentes/portafolio/portafolio.component';
 
 
 //Se crea una constante de tipo Routes que es una clase que se crea desde
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'Registro', component: RegistroComponent, pathMatch: 'full' },
   { path: 'Dashboard', component: DashboardComponent, pathMatch: 'full' },
   { path: 'Usuario', component: UsuarioComponent, pathMatch: 'full' },
+  { path: 'Portafolio', component: PortafolioComponent, pathMatch: 'full' },
   { path:'**', component: Page404Component, pathMatch: 'full' },  //Envía a esta página si no se especifica bien la ruta
 ];
 

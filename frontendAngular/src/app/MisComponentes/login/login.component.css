@@ -6,6 +6,11 @@
     box-shadow: 0px 10px 34px -13px rgba(0, 0, 0, 0.74);
 }
 
+#login-h4{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 .lista-botones {
     display: flex;
     justify-content: center;
