@@ -1,147 +1,304 @@
 <app-menu></app-menu>
-<p>registro works!</p>
 
-<!-- Lista de botones -->
-<div class="lista-botones">
-  <!-- Botón Mostrar/Ocultar -->
-  <div class="boton-func">
-    <button type="submit" class="btn btn-primary" (click)="MostrarOcultar()">
-      Mostrar/Ocultar
-    </button>
-  </div>
-
-  <!-- Botón Mostrar tabla -->
-  <div class="boton-func">
-    <button type="submit" class="btn btn-primary" (click)="MostrarTabla()">
-      Listar Usuarios
-    </button>
-  </div>
-</div>
-<!-- Fin de la lista de botones -->
-
-<div id="registroForm" *ngIf="mostrar">
-  <div class="form-group">
-    <label for="cedula">Cedula</label>
-    <input
-      type="text"
-      class="form-control"
-      id="cedula"
-      placeholder="Ej. 11223344"
-      [(ngModel)]="cedula"
-    />
-  </div>
-
-  <div class="form-group">
-    <label for="name">Nombre</label>
-    <input type="text" class="form-control" id="name" [(ngModel)]="nombre" />
-  </div>
-
-  <div class="form-group">
-    <label for="apellido">Apellido</label>
-    <input
-      type="text"
-      class="form-control"
-      id="apellido"
-      [(ngModel)]="apellido"
-    />
-  </div>
-
-  <div class="form-group">
-    <label for="edad">Edad</label>
-    <input type="number" class="form-control" id="edad" [(ngModel)]="edad" />
-  </div>
-
-  <div class="form-group">
-    <label for="dir">Direccion</label>
-    <input type="text" class="form-control" id="dir" [(ngModel)]="direccion" />
-  </div>
-
-  <div class="form-group">
-    <label for="tel">Telefono</label>
-    <input type="text" class="form-control" id="tel" [(ngModel)]="telefono" />
-  </div>
-
-  <div class="form-group">
-    <label for="estado">Estado civil</label>
-    <input
-      type="text"
-      class="form-control"
-      id="estado"
-      placeholder="ej. soltero,casado, divorciado, etc."
-      [(ngModel)]="estadocivil"
-    />
-  </div>
-
-  <div class="form-group">
-    <label for="exampleInputEmail1">Correo electónico</label>
-    <input
-      type="email"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-      placeholder="Enter email"
-      [(ngModel)]="email"
-    />
-    <small id="emailHelp" class="form-text text-muted"
-      >No comparata información personal con nadie.</small
-    >
-  </div>
-
-  <div class="form-group">
-    <label for="pass">Contraseña</label>
-    <input
-      type="password"
-      class="form-control"
-      id="pass"
-      placeholder="Enter secret password"
-      [(ngModel)]="password"
-    />
-  </div>
-
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="Check" />
-    <label class="form-check-label" for="Check">Check me out</label>
-  </div>
-
+<div class="ventana-flotante2">
   <!-- Lista de botones -->
   <div class="lista-botones">
     <!-- Botón Mostrar/Ocultar -->
     <div class="boton-func">
-      <button type="submit" class="btn btn-primary" (click)="Registrar()">
-        Registrar
+      <button type="submit" class="btn btn-primary" (click)="MostrarOcultar()">
+        Mostrar/Ocultar
+      </button>
+    </div>
+
+    <!-- Botón Mostrar tabla -->
+    <div class="boton-func">
+      <button type="submit" class="btn btn-primary" (click)="MostrarTabla()">
+        Listar Usuarios
       </button>
     </div>
   </div>
   <!-- Fin de la lista de botones -->
+
+  <div id="registroForm" *ngIf="mostrar">
+    <div class="form-group">
+      <label for="cedula">Cedula</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cedula"
+        placeholder="Ej. 11223344"
+        [(ngModel)]="cedula"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="nombre" />
+    </div>
+
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input
+        type="text"
+        class="form-control"
+        id="apellido"
+        [(ngModel)]="apellido"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="edad">Edad</label>
+      <input type="number" class="form-control" id="edad" [(ngModel)]="edad" />
+    </div>
+
+    <div class="form-group">
+      <label for="dir">Direccion</label>
+      <input
+        type="text"
+        class="form-control"
+        id="dir"
+        [(ngModel)]="direccion"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="tel">Telefono</label>
+      <input type="text" class="form-control" id="tel" [(ngModel)]="telefono" />
+    </div>
+
+    <div class="form-group">
+      <label for="estado">Estado civil</label>
+      <input
+        type="text"
+        class="form-control"
+        id="estado"
+        placeholder="ej. soltero,casado, divorciado, etc."
+        [(ngModel)]="estadocivil"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Correo electónico</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        placeholder="Enter email"
+        [(ngModel)]="email"
+      />
+      <small id="emailHelp" class="form-text text-muted"
+        >No comparata información personal con nadie.</small
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="pass">Contraseña</label>
+      <input
+        type="password"
+        class="form-control"
+        id="pass"
+        placeholder="Enter secret password"
+        [(ngModel)]="password"
+      />
+    </div>
+
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="Check" />
+      <label class="form-check-label" for="Check">Check me out</label>
+    </div>
+
+    <!-- Lista de botones -->
+    <div class="lista-botones">
+      <!-- Botón Mostrar/Ocultar -->
+      <div class="boton-func">
+        <button type="submit" class="btn btn-primary" (click)="Registrar()">
+          Registrar
+        </button>
+      </div>
+    </div>
+    <!-- Fin de la lista de botones -->
+  </div>
+
+  <!-- TABLA PARA MOSTRAR DATOS -->
+  <table class="table" *ngIf="mostrar_tabla">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Contraseña</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of ListaDatos">
+        <th scope="row">1</th>
+        <td>{{ item.cedula }}</td>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.apellido }}</td>
+        <td>{{ item.edad }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.password }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- CÓDIGO DE MARCE -->
+
+  <div id="registro2">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault01">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationDefault01"
+          [(ngModel)]="nombre"
+          required
+        />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault03">Apellido</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationDefault03"
+          [(ngModel)]="apellido"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4 mb-3">
+        <label for="disabledSelect1">Tipo identificación</label>
+        <select id="disabledSelect1" class="form-control">
+          <option></option>
+          <option>Cedula</option>
+          <option>Cedula extranjeria</option>
+          <option>Pasaporte</option>
+          <option>Otros</option>
+        </select>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault05">Numero documento identificación</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationDefault05"
+          [(ngModel)]="cedula"
+        />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefaultUsername">Correo</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend2">@</span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="validationDefaultUsername"
+            [(ngModel)]="email"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault06">Telefono</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationDefault06"
+          [(ngModel)]="telefono"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault07">Edad</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationDefault07"
+          [(ngModel)]="edad"
+          required
+        />
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault08">Dirección</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationDefault08"
+          [(ngModel)]="direccion"
+          required
+        />
+      </div>
+
+      <div class="form-group col-md-4 mb-3">
+        <label for="disabledSelect">Estado civil</label>
+        <select
+          id="disabledSelect"
+          class="form-control"
+          [(ngModel)]="estadocivil"
+        >
+          <option></option>
+          <option>Soltero</option>
+          <option>Casado</option>
+          <option>Divorciado</option>
+          <option>Viudo</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-3">
+        <label for="password">Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          [(ngModel)]="password"
+        />
+      </div>
+      <div class="form-group col-md-6 mb-3">
+        <label for="password2">Confirmar Contraseña</label>
+        <input type="password" class="form-control" id="password2" />
+      </div>
+    </div>
+    <div class="form-group">
+      <p id="tratamiento-datos">
+        Sanchez Soluciones te informa sobre su Política de Privacidad respecto
+        del tratamiento y protección de los datos de carácter personal de los
+        usuarios y clientes que puedan ser recabados por la navegación o
+        contratación de servicios a través del presente sitio Web. En este
+        sentido, el Titular garantiza el cumplimiento de la normativa vigente en
+        materia de protección de datos personales, reflejada en la Ley Orgánica
+        3/2018, de 5 de diciembre, de Protección de Datos Personales y de
+        Garantía de Derechos Digitales (LOPD GDD). Cumple también con el
+        Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de
+        abril de 2016 relativo a la protección de las personas físicas (RGPD).
+        El uso de sitio Web implica la aceptación de esta Política de Privacidad
+        así como las condiciones incluidas en el Aviso Legal.
+      </p>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="invalidCheck2"
+          required
+        />
+        <label class="form-check-label" for="invalidCheck2">
+          Acepto terminos y condiciones
+        </label>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" (click)="Registrar()">
+      Registrar
+    </button>
+  </div>
 </div>
-
-<!-- de esta forma convertimos una variable en texto para leer en el
-    html (con los "|")
--->
-<div>{{ msj | json }}</div>
-
-<!-- de esta forma se ve solo la informacion que contiene la variable
--->
-<div>{{ msj.datos | json }}</div>
-
-<!-- TABLA PARA MOSTRAR DATOS -->
-<table class="table" *ngIf="mostrar_tabla">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Cedula</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">Edad</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of ListaDatos">
-      <th scope="row">1</th>
-      <td>{{ item.cedula }}</td>
-      <td>{{ item.nombre }}</td>
-      <td>{{ item.apellido }}</td>
-      <td>{{ item.edad }}</td>
-    </tr>
-  </tbody>
-</table>

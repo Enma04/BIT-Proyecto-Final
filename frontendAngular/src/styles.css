@@ -13,3 +13,9 @@
     left: 153px;
     top: 58px;
 }
+
+.ventana-flotante2{
+    position: absolute;
+    top: 70px;
+    padding: 10px;
+}
