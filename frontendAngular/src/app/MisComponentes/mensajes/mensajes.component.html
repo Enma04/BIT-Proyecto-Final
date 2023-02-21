@@ -1,0 +1,9 @@
+<div id="bloque-mensajes" class="sticky-top">
+  <div
+    class="caja-msj alert alert-{{ item.tipo }}"
+    role="alert"
+    *ngFor="let item of msj.datos"
+  >
+    {{ item.mensaje }}
+  </div>
+</div>

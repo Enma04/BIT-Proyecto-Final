@@ -1,0 +1,146 @@
+<app-menu></app-menu>
+<p>registro works!</p>
+
+<!-- Lista de botones -->
+<div class="lista-botones">
+  <!-- Botón Mostrar/Ocultar -->
+  <div class="boton-func">
+    <button type="submit" class="btn btn-primary" (click)="MostrarOcultar()">
+      Mostrar/Ocultar
+    </button>
+  </div>
+
+  <!-- Botón Mostrar tabla -->
+  <div class="boton-func">
+    <button type="submit" class="btn btn-primary" (click)="MostrarTabla()">
+      Listar Usuarios
+    </button>
+  </div>
+</div>
+<!-- Fin de la lista de botones -->
+
+<div id="registroForm" *ngIf="mostrar">
+  <div class="form-group">
+    <label for="cedula">Cedula</label>
+    <input
+      type="text"
+      class="form-control"
+      id="cedula"
+      placeholder="Ej. 11223344"
+      [(ngModel)]="cedula"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="name">Nombre</label>
+    <input type="text" class="form-control" id="name" [(ngModel)]="nombre" />
+  </div>
+
+  <div class="form-group">
+    <label for="apellido">Apellido</label>
+    <input
+      type="text"
+      class="form-control"
+      id="apellido"
+      [(ngModel)]="apellido"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="edad">Edad</label>
+    <input type="number" class="form-control" id="edad" [(ngModel)]="edad" />
+  </div>
+
+  <div class="form-group">
+    <label for="dir">Direccion</label>
+    <input type="text" class="form-control" id="dir" [(ngModel)]="direccion" />
+  </div>
+
+  <div class="form-group">
+    <label for="tel">Telefono</label>
+    <input type="text" class="form-control" id="tel" [(ngModel)]="telefono" />
+  </div>
+
+  <div class="form-group">
+    <label for="estado">Estado civil</label>
+    <input
+      type="text"
+      class="form-control"
+      id="estado"
+      placeholder="ej. soltero,casado, divorciado, etc."
+      [(ngModel)]="estadocivil"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Correo electónico</label>
+    <input
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="Enter email"
+      [(ngModel)]="email"
+    />
+    <small id="emailHelp" class="form-text text-muted"
+      >No comparata información personal con nadie.</small
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="pass">Contraseña</label>
+    <input
+      type="password"
+      class="form-control"
+      id="pass"
+      placeholder="Enter secret password"
+    />
+  </div>
+
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="Check" />
+    <label class="form-check-label" for="Check">Check me out</label>
+  </div>
+
+  <!-- Lista de botones -->
+  <div class="lista-botones">
+    <!-- Botón Mostrar/Ocultar -->
+    <div class="boton-func">
+      <button type="submit" class="btn btn-primary" (click)="Registrar()">
+        Registrar
+      </button>
+    </div>
+  </div>
+  <!-- Fin de la lista de botones -->
+</div>
+
+<!-- de esta forma convertimos una variable en texto para leer en el
+    html (con los "|")
+-->
+<div>{{ msj | json }}</div>
+
+<!-- de esta forma se ve solo la informacion que contiene la variable
+-->
+<div>{{ msj.datos | json }}</div>
+
+<!-- TABLA PARA MOSTRAR DATOS -->
+<table class="table" *ngIf="mostrar_tabla">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Cedula</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Edad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of ListaDatos">
+      <th scope="row">1</th>
+      <td>{{ item.cedula }}</td>
+      <td>{{ item.nombre }}</td>
+      <td>{{ item.apellido }}</td>
+      <td>{{ item.edad }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*
+    ESTA ES UNA VENTANA FLOTANTE PARA LAS ZONAS
+    PRIVADAS CON MENÚ LATERAL
+    SE PONE UN DIV CON ESTA CLASE
+*/
+.ventana-flotante {
+    position: absolute;
+    width: calc(100% - 153px);
+    height: calc(100vh - 58px);
+    padding: 10px;
+    left: 153px;
+    top: 58px;
+}
