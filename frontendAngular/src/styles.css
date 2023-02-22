@@ -12,6 +12,8 @@
     padding: 10px;
     left: 153px;
     top: 58px;
+    background-image: url(../src/assets/FondoZonaPrivada.jpeg);
+    background-size: cover;
 }
 
 .ventana-flotante2{
