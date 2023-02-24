@@ -32,7 +32,7 @@ usuariosController.Guardar = function (peticion, respuesta) {
         telefono     :peticion.body.telefono,
         estadocivil  :peticion.body.estadocivil,
         email        :peticion.body.email,
-        password     :SHA256(peticion.body.password + configuracion.pass),
+        password     :peticion.body.password,
     }
 
     //VALIDACIONES DE LOS DATOS
@@ -176,7 +176,7 @@ usuariosController.ListarUsuario = function (peticion, respuesta) {
 
 
 
-//Api Login
+//Api Login de las actividades anteriores (no se usa)
 usuariosController.Login = function (peticion, respuesta) {
 
     let data = {
@@ -195,6 +195,36 @@ usuariosController.Login = function (peticion, respuesta) {
         }
         else {
             modelUsuario.Login(data, function (res) {
+                respuesta.json(res);
+            })
+        }
+    }
+    
+} //Fin api Login
+
+
+//Api Login de los usuarios normales de la página
+usuariosController.LoginUsuario = function (peticion, respuesta) {
+
+    let data = {
+        email      :peticion.body.email,
+        password   :peticion.body.password, //Obtenemos el password sin encriptar, para validar campos
+    }
+
+    if (data.email == "" || data.email == null || data.email == undefined || data.email == " ") {
+        respuesta.json({ state: false, mensaje: "El campo correo electrónico es obligatorio" })
+        return false;
+    }
+    else {
+        if (data.password == "" || data.password == null || data.password == undefined || data.password == " ") {
+            respuesta.json({ state: false, mensaje: "El campo password es obligatorio" })
+            return false;
+        }
+        else {
+            //Encriptamos la contraseña igual como se registró en la api "usuariosModel.Guardar()"
+            data.password = SHA256(data.password + configuracion.pass);
+            //Enviamos los datos actualizados
+            modelUsuario.LoginUsuario(data, function (res) {
                 respuesta.json(res);
             })
         }

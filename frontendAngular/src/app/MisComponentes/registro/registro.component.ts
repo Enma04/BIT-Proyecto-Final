@@ -13,25 +13,26 @@ import { PeticionService } from 'src/app/servicios/peticion.service';
   
   
   
-  //--------------------------------------------------------------------
-  //CLASE: RegistroComponent
-  //--------------------------------------------------------------------
+//--------------------------------------------------------------------
+//CLASE: RegistroComponent
+//--------------------------------------------------------------------
 export class RegistroComponent implements OnInit {
 
 
-  //--------------------------------------------------------------------
-  //VARIABLES DE LA CLASE
-  //--------------------------------------------------------------------
+//--------------------------------------------------------------------
+//VARIABLES DE LA CLASE
+//--------------------------------------------------------------------
 
   cedula: string = "";
   nombre: string = "";
   apellido: string = "";
   email: string = "";
-  edad: number = 0;
+  edad!: number;      //Se establece como propiedad definitiva
   direccion: string = "";
   telefono: string = "";
   estadocivil: string = "";
   password: string = "";
+  password_check: string = "";
 
   mostrar: boolean = true;
   mostrar_tabla: boolean = false;
@@ -73,9 +74,9 @@ export class RegistroComponent implements OnInit {
   
 
 
-  //--------------------------------------------------------------------
-  //CONSTRUCTOR DE LA CLASE
-  //--------------------------------------------------------------------
+//--------------------------------------------------------------------
+//CONSTRUCTOR DE LA CLASE
+//--------------------------------------------------------------------
 
   /*
   El constructor es lo primero que se carga en Angular.
@@ -97,22 +98,27 @@ export class RegistroComponent implements OnInit {
 
 
 
-
-  //--------------------------------------------------------------------
-  // FUNCIONES DE LA CLASE RegistroComponent
-  //--------------------------------------------------------------------
-
+//--------------------------------------------------------------------
+// FUNCIONES DE LA CLASE RegistroComponent
+//--------------------------------------------------------------------
 
 
-    //Mostrar u Ocultar el registro
-  MostrarOcultar() {
+
+  
+  //Mostrar u Ocultar el registro
+/*   MostrarOcultar() {
     this.mostrar = !this.mostrar;
   }
-
+*/
+  
+  
   //Mostrar u Ocultar el registro
   MostrarTabla() {
+    //Invertimos el valor actual de la variable "mostrar_tabla"
     this.mostrar_tabla = !this.mostrar_tabla;
 
+    //Sí "mostrar" es verdadero, entonces llamamos la función
+    //que lista los usuarios
     if (this.mostrar_tabla) {
       this.ListarUsuarios();
     }
@@ -121,61 +127,69 @@ export class RegistroComponent implements OnInit {
 
 
 
-
-
-
-  //--------------------------------------------------------------------
-  //C.R.U.D
-  //--------------------------------------------------------------------
-
+//--------------------------------------------------------------------
+//C.R.U.D
+//--------------------------------------------------------------------
+  
+  
+  
+  
   //VALIDAR DATOS FRONTEND
   ValidacionDatosFront():boolean {
 
-    //VALIDACIONES DE LOS DATOS
-    //CEDULA
-    if (this.cedula == "" || this.cedula == null || this.cedula == undefined || this.cedula == " ") {
-        this.msj.Cargar("danger", "El campo Cedula es obligatorio", 4000);
-        return false;
-    }
 
+    //VALIDACIONES DE LOS DATOS
+
+    //NOMBRE
+    if (this.nombre == "" || this.nombre == null || this.nombre == undefined || this.nombre == " ") {
+      this.msj.Cargar("danger", "El campo nombre es obligatorio", 4000);
+      return false;
+    }
     else {
-      //PASSWORD
-      if (this.password == "" || this.password == null || this.password == undefined || this.password == " ") {
-        this.msj.Cargar("danger", "El campo Contraseña es obligatorio", 4000);
+      if (this.nombre.length < 4 || this.nombre.length > 20) {
+        this.msj.Cargar("danger", "El campo nombre debe tener entre 4 y 20 caracteres", 4000);
         return false;
       }
       else {
-        //NOMBRE
-        if (this.nombre == "" || this.nombre == null || this.nombre == undefined || this.nombre == " ") {
-          this.msj.Cargar("danger", "El campo Nombre es obligatorio", 4000);
+        //APELLIDO
+        if (this.apellido == "" || this.apellido == null || this.apellido == undefined || this.apellido == " ") {
+          this.msj.Cargar("danger", "El campo apellido es obligatorio", 4000);
           return false;
         }
         else {
-          if (this.nombre.length < 4 || this.nombre.length > 20) {
-            this.msj.Cargar("danger", "El campo Nombre debe tener entre 4 y 20 caracteres", 4000);
+          if (this.apellido.length < 4 || this.apellido.length > 20) {
+            this.msj.Cargar("danger", "El campo apellido debe tener entre 4 y 20 caracteres", 4000);
             return false;
           }
           else {
-            //APELLIDO
-            if (this.apellido == "" || this.apellido == null || this.apellido == undefined || this.apellido == " ") {
-              this.msj.Cargar("danger", "El campo Apellido es obligatorio", 4000);
+            //CEDULA
+            if (this.cedula == "" || this.cedula == null || this.cedula == undefined || this.cedula == " ") {
+              this.msj.Cargar("danger", "El campo cedula es obligatorio", 4000);
               return false;
             }
             else {
-              if (this.apellido.length < 4 || this.apellido.length > 20) {
-                this.msj.Cargar("danger", "El campo Apellido debe tener entre 4 y 20 caracteres", 4000);
+               //PASSWORD
+              if (this.password == "" || this.password == null || this.password == undefined || this.password == " ") {
+                this.msj.Cargar("danger", "El campo contraseña es obligatorio", 4000);
                 return false;
               }
               else {
-                return true;
-              }
-            }
-          }
-        }
-      }
-    }
+                if (this.password != this.password_check) {
+                  this.msj.Cargar("danger", "Las contraseñas no cohoinciden", 4000);
+                  return false;
+                }
+                else {
+                  return true;
+                }
+              } //Fin del sexto else
+            } //Fin del quinto else
+          } //Fin del cuarto else
+        } //Fin del tercer else
+      } //Fin del segundo else
+    } //Fin del porimer else
 
   } //Fin de la función de validación de datos desde el FrontEnd
+
 
 
   //Guardar la información del cliente
@@ -199,7 +213,6 @@ export class RegistroComponent implements OnInit {
 
 
     //VALIDAMOS LA INFORMACIÓN PARA SABER SI SE LE PASA AL BACKEND
-
     if (this.ValidacionDatosFront()) {
       //Petición de tipo Post
       this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
@@ -227,10 +240,8 @@ export class RegistroComponent implements OnInit {
             this.ListarUsuarios();
             this.dir.navigate(["/Login"]); //Enviamos al usuario al Login
           }
-        
-      })
+        })
     }
-
   } //Fin Función Registrar()
   
 

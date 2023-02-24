@@ -40,7 +40,12 @@ app.post("/Cliente/ListarUsuario", function (peticion,respuesta) {
     usuariosRutas.ListarUsuario(peticion, respuesta);
 })
 
-// Api Login
+// Api Login (no se usa)
 app.post("/Cliente/Login", function (peticion,respuesta) {
     usuariosRutas.Login(peticion, respuesta);
+})
+
+// Api Login usuario normal
+app.post("/Cliente/LoginUsuario", function (peticion,respuesta) {
+    usuariosRutas.LoginUsuario(peticion, respuesta);
 })

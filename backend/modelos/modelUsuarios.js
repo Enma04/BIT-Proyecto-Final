@@ -187,11 +187,37 @@ usuariosModel.ListarUsuario = function (data, callback) {
 } //Fin api READ de 1 solo campo
 
 
-//API LOGIN
+//API LOGIN (no se usa)
 usuariosModel.Login = function (data, callback) {
 
     //find({criterio de búsqueda}, {datos que se quieren ver o ocultar}, () => {})
     miModelo.find({ cedula: data.cedula, password: data.password }, {
+        _id: 0,
+        __v: 0,
+    }, (error, documentos) => {
+
+        if (error) {
+            console.log(error);
+            return callback({ state: false, mensaje: error });
+        }
+        else {
+            if (documentos.length === 1) {
+                return callback({ state: true, mensaje: "Bienvenido: " + documentos[0].nombre });
+            } //Fin del if de length
+            else {
+                return callback({ state: false, mensaje: "El usuario o el password son incorrectos!"});
+            }
+        }
+
+    });
+} //Fin api LOGIN
+
+
+//API LOGIN USUARIO NORMAL
+usuariosModel.LoginUsuario = function (data, callback) {
+
+    //find({criterio de búsqueda}, {datos que se quieren ver o ocultar}, () => {})
+    miModelo.find({ email: data.email, password: data.password }, {
         _id: 0,
         __v: 0,
     }, (error, documentos) => {

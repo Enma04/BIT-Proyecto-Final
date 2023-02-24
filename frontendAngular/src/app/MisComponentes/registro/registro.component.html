@@ -234,7 +234,12 @@
       </div>
       <div class="form-group col-md-6 mb-3">
         <label for="password2">Confirmar Contraseña</label>
-        <input type="password" class="form-control" id="password2" />
+        <input
+          type="password"
+          class="form-control"
+          id="password2"
+          [(ngModel)]="password_check"
+        />
       </div>
     </div>
     <div class="form-group">
@@ -295,8 +300,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of ListaDatos">
-        <th scope="row">1</th>
+      <tr *ngFor="let item of ListaDatos; let indice = index">
+        <th scope="row">{{ indice + 1 }}</th>
         <td>{{ item.cedula }}</td>
         <td>{{ item.nombre }}</td>
         <td>{{ item.apellido }}</td>
