@@ -5,6 +5,8 @@
  ESTE ARCHIVO PUEDE IR PERFECTAMENTE EN "app.js"
 */
 
+const { response } = require("express");
+
 
 /*
 ---------------------//---------------------------------//-------------- 
@@ -48,4 +50,21 @@ app.post("/Cliente/Login", function (peticion,respuesta) {
 // Api Login usuario normal
 app.post("/Cliente/LoginUsuario", function (peticion,respuesta) {
     usuariosRutas.LoginUsuario(peticion, respuesta);
+})
+
+
+
+//--------------------------------------------------------------------------
+//PRUEBAS PARA VER EN POSTMAN
+//--------------------------------------------------------------------------
+
+// Api Login usuario normal
+app.post("/Cliente/LoginPostman", function (peticion,respuesta) {
+    peticion.sesion = peticion.body.usuario;
+    respuesta.json({ state: true });
+})
+
+// Api ver cookies
+app.post("/Cliente/VerCookies", function (peticion,respuesta) {
+    respuesta.json({ clave: peticion.sesion });
 })

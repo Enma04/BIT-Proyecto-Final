@@ -20,6 +20,19 @@ var bodyParse = require('body-parser');
 app.use(bodyParse.json());
 app.use(bodyParse.urlencoded({ extended: true }));
 
+//Creamos una variable que permita usar el paquete de sesionesde express
+var sesion = require("express-session")({
+    secret: "claveOculta",  //Esta cadena de texto solo la conoce el dueño del servidor
+    resave: true,  //Permite grabar la sesion en node
+    saveUninitialized: true,  //Grabe cuando se inicialice
+    cookie: { path: "/", httpOnly: true, maxAge: 15000 },  //ruta de almacenamiento
+    name: "CookieFinal", //Nombre de la cookie
+    rolling: true //Siempre va
+
+})
+
+app.use(sesion);  //Listo para usar la sesión
+
 //Configuraciónpara realizar las peticiones desde HTML
 app.all("*", function (peticion, respuesta, next) {
 
@@ -37,19 +50,6 @@ app.all("*", function (peticion, respuesta, next) {
 
 //Configuración para permitir o no el paso de usuarios a la información
 var cors_VAR = require('cors');  //Cross origin resource sharing
-//Creamos una variable que permita usar el paquete de sesionesde express
-var sesion = require("express-session")({
-    secret: "claveOculta",  //Esta cadena de texto solo la conoce el dueño del servidor
-    resave: true,  //Permite grabar la sesion en node
-    saveUninitialized: true,  //Grabe cuando se inicialice
-    cookie: { path: "/", httpOnly: true, maxAge: 15000 },  //ruta de almacenamiento
-    name: "CookieFinal", //Nombre de la cookie
-    rolling: true, //Siempre va
-
-})
-
-app.use(sesion);  //Listo para usar la sesión
-
 
 app.use(cors_VAR({
     origin: function (origin, callback) {
