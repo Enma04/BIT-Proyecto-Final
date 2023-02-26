@@ -20,6 +20,13 @@ var modelUsuario = require(__dirname + "/../modelos/modelUsuarios.js").modelUsua
 
 
 
+
+/*
+---------------------//---------------------------------//-------------- 
+------------//--------------APIS DE TIPO (C.R.U.D)-----------//--------- 
+---------------------//---------------------------------//--------------
+*/
+
 //Api Guardar
 usuariosController.Guardar = function (peticion, respuesta) {
     
@@ -157,8 +164,9 @@ usuariosController.Eliminar = function (peticion, respuesta) {
 
 //---------------------------------------------------------------------------------------
 // API'S ADICIONALES
+//---------------------------------------------------------------------------------------
 
-//Api ListarUsuario
+//Api ListarUsuario, tipo READ de 1 usuario
 usuariosController.ListarUsuario = function (peticion, respuesta) {
 
     let data = { cedula: peticion.body.cedula, }
@@ -247,11 +255,16 @@ usuariosController.LoginUsuario = function (peticion, respuesta) {
     
 } //Fin api Login
 
-// Api ver cookies
+// Api para ver cookies
 app.post("/Cliente/MostrarCookies", function (peticion,respuesta) {
     respuesta.json({ clave: peticion.session });
 })
 
 
+
+
+
+//---------------------------------------------------------------------------------------
 //EXPORTAMOS LA VARIABLE QUE CONTIENE LA INFORMACIÓN
+//---------------------------------------------------------------------------------------
 module.exports.controladorUsuariosExport = usuariosController;

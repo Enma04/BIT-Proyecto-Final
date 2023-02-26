@@ -35,6 +35,16 @@ const miModelo = mongoose.model('usuarios', esquemaUsuarios);
 //Creamos una instancia del modelo
 const instancia = new miModelo;
 
+
+
+
+
+/*
+---------------------//---------------------------------//-------------- 
+------------//--------------APIS DE TIPO (C.R.U.D)-----------//--------- 
+---------------------//---------------------------------//--------------
+*/
+
 //LÓGICA DE LA API CREATE
 usuariosModel.Guardar = function (data, callback) {
 
@@ -159,9 +169,10 @@ usuariosModel.Eliminar = function (data, eliminacion) {
 
 
 
+
 //---------------------------------------------------------------------------------------
 // API'S ADICIONALES
-
+//---------------------------------------------------------------------------------------
 
 //API READ DE 1 SOLO USUARIO
 usuariosModel.ListarUsuario = function (data, callback) {
@@ -241,5 +252,10 @@ usuariosModel.LoginUsuario = function (data, callback) {
 } //Fin api LOGIN
 
 
+
+
+
+//---------------------------------------------------------------------------------------
 //EXPORTAMOS LA VARIABLE QUE CONTIENE LA INFORMACIÓN
+//---------------------------------------------------------------------------------------
 module.exports.modelUsuariosExport = usuariosModel;

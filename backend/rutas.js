@@ -7,14 +7,6 @@
 
 const { response } = require("express");
 
-
-/*
----------------------//---------------------------------//-------------- 
-------------//--------------APIS DE TIPO (C.R.U.D)-----------//--------- 
----------------------//---------------------------------//--------------
-*/
-
-
 var usuariosRutas = require(__dirname + "/controladores/controladorUsuarios.js").controladorUsuariosExport
 
 //Middlewear valida que la sesión esté activa para usar alguna appi
@@ -28,13 +20,24 @@ var validarSesion = function (peticion, respuesta, next) {
     }
 }
 
+
+
+
+
+
+/*
+---------------------//---------------------------------//-------------- 
+------------//--------------APIS DE TIPO (C.R.U.D)-----------//--------- 
+---------------------//---------------------------------//--------------
+*/
+
 // Api CREATE
 app.post("/Cliente/Guardar", function (peticion, respuesta) {
     usuariosRutas.Guardar(peticion, respuesta);
 })
 
 // Api READ
-app.post("/Cliente/ListarUsuarios", validarSesion, function (peticion,respuesta) {
+app.post("/Cliente/ListarUsuarios", /*validarSesion, */function (peticion,respuesta) {
     usuariosRutas.ListarUsuarios(peticion, respuesta);
 })
 
@@ -47,6 +50,16 @@ app.post("/Cliente/Modificar", function (peticion, respuesta) {
 app.post("/Cliente/Eliminar", function (peticion, respuesta) {
     usuariosRutas.Eliminar(peticion, respuesta);
 })
+
+
+
+
+
+
+
+//---------------------------------------------------------------------------------------
+// API'S ADICIONALES
+//---------------------------------------------------------------------------------------
 
 // Api READ de 1 usuario
 app.post("/Cliente/ListarUsuario", function (peticion,respuesta) {
@@ -70,11 +83,15 @@ app.post("/Cliente/MostrarCookies", function (peticion,respuesta) {
 
 
 
+
+
 //--------------------------------------------------------------------------
 //PRUEBAS PARA VER EN POSTMAN
 //--------------------------------------------------------------------------
 
-// Api Login usuario normal
+// Api Login desde postman (todo en rutas.js)
+/*
+
 app.post("/Cliente/LoginPostman", function (peticion,respuesta) {
     peticion.session.nombre = peticion.body.nombre;
     respuesta.json({ state: true });
@@ -84,3 +101,5 @@ app.post("/Cliente/LoginPostman", function (peticion,respuesta) {
 app.post("/Cliente/VerCookies", function (peticion,respuesta) {
     respuesta.json({ clave: peticion.session });
 })
+
+*/
