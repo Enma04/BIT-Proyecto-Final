@@ -218,7 +218,7 @@ usuariosModel.LoginUsuario = function (data, callback) {
 
     //find({criterio de búsqueda}, {datos que se quieren ver o ocultar}, () => {})
     miModelo.find({ email: data.email, password: data.password }, {
-        _id: 0,
+        _id: 1,
         __v: 0,
     }, (error, documentos) => {
 
@@ -228,10 +228,12 @@ usuariosModel.LoginUsuario = function (data, callback) {
         }
         else {
             if (documentos.length === 1) {
-                return callback({ state: true, mensaje: "Bienvenido: " + documentos[0].nombre });
-            } //Fin del if de length
+                //Devuelve el documento json
+                return callback({ state: true, documento:documentos });
+            }
             else {
-                return callback({ state: false, mensaje: "El usuario o el password son incorrectos!"});
+                //devuelve el error
+                return callback({ state: false, documento:error });
             }
         }
 

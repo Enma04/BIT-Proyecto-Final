@@ -22,10 +22,10 @@ app.use(bodyParse.urlencoded({ extended: true }));
 
 //Creamos una variable que permita usar el paquete de sesionesde express
 var sesion = require("express-session")({
-    secret: "claveOculta",  //Esta cadena de texto solo la conoce el dueño del servidor
+    secret: configuracion.claveOculta,  //Esta cadena de texto solo la conoce el dueño del servidor
     resave: true,  //Permite grabar la sesion en node
     saveUninitialized: true,  //Grabe cuando se inicialice
-    cookie: { path: "/", httpOnly: true, maxAge: 15000 },  //ruta de almacenamiento
+    cookie: { path: "/", httpOnly: true, maxAge: configuracion.tiempoSesion },  //ruta de almacenamiento
     name: "CookieFinal", //Nombre de la cookie
     rolling: true //Siempre va
 

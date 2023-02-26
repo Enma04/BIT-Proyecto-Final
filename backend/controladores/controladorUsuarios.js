@@ -18,6 +18,8 @@ carpeta "modelos"
 */
 var modelUsuario = require(__dirname + "/../modelos/modelUsuarios.js").modelUsuariosExport
 
+
+
 //Api Guardar
 usuariosController.Guardar = function (peticion, respuesta) {
     
@@ -153,7 +155,6 @@ usuariosController.Eliminar = function (peticion, respuesta) {
 
 
 
-
 //---------------------------------------------------------------------------------------
 // API'S ADICIONALES
 
@@ -174,18 +175,16 @@ usuariosController.ListarUsuario = function (peticion, respuesta) {
     
 } //Fin api Listar usuario
 
-
-
 //Api Login de las actividades anteriores (no se usa)
 usuariosController.Login = function (peticion, respuesta) {
 
     let data = {
         cedula     :peticion.body.cedula,
-        password   :SHA256(peticion.body.password + configuracion.pass),
+        password   :peticion.body.password, //Obtenemos el password sin encriptar, para validar campos
     }
 
     if (data.cedula == "" || data.cedula == null || data.cedula == undefined || data.cedula == " ") {
-        respuesta.json({ state: false, mensaje: "El campo cedula es obligatorio" })
+        respuesta.json({ state: false, mensaje: "El campo correo electrónico es obligatorio" })
         return false;
     }
     else {
@@ -194,6 +193,9 @@ usuariosController.Login = function (peticion, respuesta) {
             return false;
         }
         else {
+            //Encriptamos la contraseña igual como se registró en la api "usuariosModel.Guardar()"
+            data.password = SHA256(data.password + configuracion.pass);
+            //Enviamos los datos actualizados
             modelUsuario.Login(data, function (res) {
                 respuesta.json(res);
             })
@@ -201,7 +203,6 @@ usuariosController.Login = function (peticion, respuesta) {
     }
     
 } //Fin api Login
-
 
 //Api Login de los usuarios normales de la página
 usuariosController.LoginUsuario = function (peticion, respuesta) {
@@ -225,12 +226,31 @@ usuariosController.LoginUsuario = function (peticion, respuesta) {
             data.password = SHA256(data.password + configuracion.pass);
             //Enviamos los datos actualizados
             modelUsuario.LoginUsuario(data, function (res) {
-                respuesta.json(res);
+                //Miramos lo que contien res (state,documento), para saber la información que trae
+                console.log(res);
+                if (res.state == true) {
+
+                    peticion.session.nombre = res.documento[0].nombre;
+                    peticion.session.email = res.documento[0].email;
+                    peticion.session._id = res.documento[0]._id;
+
+                    console.log(peticion.session);
+
+                    respuesta.json({ state: true, mensaje: "Bienvenido: " + res.documento[0].nombre });
+                }
+                else {
+                    respuesta.json({ state: false, mensaje: "Usuario o contraseña incorrectos!" });
+                }
             })
         }
     }
     
 } //Fin api Login
+
+// Api ver cookies
+app.post("/Cliente/MostrarCookies", function (peticion,respuesta) {
+    respuesta.json({ clave: peticion.session });
+})
 
 
 //EXPORTAMOS LA VARIABLE QUE CONTIENE LA INFORMACIÓN

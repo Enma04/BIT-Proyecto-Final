@@ -17,13 +17,24 @@ const { response } = require("express");
 
 var usuariosRutas = require(__dirname + "/controladores/controladorUsuarios.js").controladorUsuariosExport
 
+//Middlewear valida que la sesión esté activa para usar alguna appi
+var validarSesion = function (peticion, respuesta, next) {
+    if (peticion.session.nombre == undefined || peticion.session.nombre == "" || peticion.session.nombre == null || peticion.session.nombre == " ") {
+        respuesta.json({ state: false, mensaje: "Su sesión ha caducado" });
+        return false;
+    }
+    else {
+        next();
+    }
+}
+
 // Api CREATE
 app.post("/Cliente/Guardar", function (peticion, respuesta) {
     usuariosRutas.Guardar(peticion, respuesta);
 })
 
 // Api READ
-app.post("/Cliente/ListarUsuarios", function (peticion,respuesta) {
+app.post("/Cliente/ListarUsuarios", validarSesion, function (peticion,respuesta) {
     usuariosRutas.ListarUsuarios(peticion, respuesta);
 })
 
@@ -52,6 +63,11 @@ app.post("/Cliente/LoginUsuario", function (peticion,respuesta) {
     usuariosRutas.LoginUsuario(peticion, respuesta);
 })
 
+// Api ver cookies de sesion
+app.post("/Cliente/MostrarCookies", function (peticion,respuesta) {
+    usuariosRutas.MostrarCookies(peticion, respuesta);
+})
+
 
 
 //--------------------------------------------------------------------------
@@ -60,11 +76,11 @@ app.post("/Cliente/LoginUsuario", function (peticion,respuesta) {
 
 // Api Login usuario normal
 app.post("/Cliente/LoginPostman", function (peticion,respuesta) {
-    peticion.sesion = peticion.body.usuario;
+    peticion.session.nombre = peticion.body.nombre;
     respuesta.json({ state: true });
 })
 
 // Api ver cookies
 app.post("/Cliente/VerCookies", function (peticion,respuesta) {
-    respuesta.json({ clave: peticion.sesion });
+    respuesta.json({ clave: peticion.session });
 })
