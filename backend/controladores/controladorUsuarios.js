@@ -241,10 +241,11 @@ usuariosController.LoginUsuario = function (peticion, respuesta) {
                     peticion.session.nombre = res.documento[0].nombre;
                     peticion.session.email = res.documento[0].email;
                     peticion.session._id = res.documento[0]._id;
+                    peticion.session.rol = res.documento[0].rol;
 
                     console.log(peticion.session);
 
-                    respuesta.json({ state: true, mensaje: "Bienvenido: " + res.documento[0].nombre });
+                    respuesta.json({ state: true, mensaje: "Bienvenido " + res.documento[0].nombre });
                 }
                 else {
                     respuesta.json({ state: false, mensaje: "Usuario o contraseña incorrectos!" });
@@ -266,6 +267,27 @@ usuariosController.CerrarSesion = function (peticion,respuesta) {
     respuesta.json({ state: true, mensaje: "Sesión Finalizada" });
 }
 
+// Api para definir el menu lateral según el rol
+usuariosController.MenuDefinido = function (peticion,respuesta) {
+    if (peticion.session.rol == 1) {
+        respuesta.json({
+            state: true, datos: [
+            { nombre: 'Datos Usuario', destino: '/Usuario' },
+            { nombre: 'Dashboard', destino: '/Dashboard' },
+            { nombre: 'Productos', destino: '/Productos'},]
+
+        });
+    } //Fin rol 1
+    else {
+        respuesta.json({
+            state: true, datos: [
+            { nombre: 'Datos Usuario', destino: '/Usuario' },
+            { nombre: 'Dashboard', destino: '/Dashboard' },]
+
+        });
+    } //Fin de los demás roles
+    
+} //Fin api MenuDefinido
 
 
 //---------------------------------------------------------------------------------------

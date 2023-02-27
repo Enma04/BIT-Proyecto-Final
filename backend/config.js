@@ -11,7 +11,7 @@ config.listaBlancaDominios = [
 ]
 
 config.claveOculta = "MyClaveOculta";
-config.tiempoSesion = 20000; //Tiempo en milisegundos (var/1000) = var_en_seg
+config.tiempoSesion = (60000 * 10); //Tiempo en milisegundos (var/1000) = var_en_seg
 
 //EXPORTAMOS LA VARIABLE "config" (LA CUAL ES UN JSON), MEDIANTE
 //EL NOMBRE "configExports"

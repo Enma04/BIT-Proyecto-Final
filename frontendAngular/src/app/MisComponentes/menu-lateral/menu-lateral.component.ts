@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MensajesService } from 'src/app/servicios/mensajes.service';
 import { PeticionService } from 'src/app/servicios/peticion.service';
@@ -15,17 +15,13 @@ import { PeticionService } from 'src/app/servicios/peticion.service';
 //-------------------------------------------------------------------------------
 //CLASE: MenuLateralComponent
 //-------------------------------------------------------------------------------
-export class MenuLateralComponent {
+export class MenuLateralComponent implements OnInit {
 
 
 //-------------------------------------------------------------------------------
 //VARIABLES DE LA CLASE
 //-------------------------------------------------------------------------------
-  datosMenu = [
-    { nombre: 'Datos Usuario', destino: '/Usuario' },
-    { nombre: 'Dashboard', destino: '/Dashboard' },
-    {nombre:'Productos',destino:'/Productos'},
-  ]
+  datosMenu:any[] = [];
 
 
 
@@ -38,11 +34,39 @@ export class MenuLateralComponent {
   }
   
 
+//-------------------------------------------------------------------------------
+//CINICIALIZADOR DE LA CLASE
+//-------------------------------------------------------------------------------
+  
+  ngOnInit(): void {
+    this.CargarMenu();
+  }
 
+  
 //-------------------------------------------------------------------------------
 //FUNCIONES DE LA CLASE
 //-------------------------------------------------------------------------------
 
+  //Función que llama la api "" del backend para cargar el menú privado, dependiendo del rol
+  CargarMenu() {
+    
+    let post = {
+      host: this.PeticionDeLlegada.url_local,
+      path: "/Cliente/MenuDefinido",
+      payload: {
+      }
+    }
+
+    //Petición de tipo Post
+    this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
+      (respuesta: any) => {
+        this.datosMenu = respuesta.datos;
+      })
+
+
+  } //Fin de la función CargarMenu()
+  
+  //Función que llama la api "/Cliente/CerrarSesion" del backend para destruir la sesión activa
   CerrarSesion() {
 
     let post = {
@@ -52,20 +76,21 @@ export class MenuLateralComponent {
       }
     }
 
-      //Petición de tipo Post
-      this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
-        (respuesta: any) => {
+    //Petición de tipo Post
+    this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
+      (respuesta: any) => {
 
-          if (respuesta.state == true) {
-            this.msj.Cargar("primary", respuesta.mensaje, 4000);
-            this.dir.navigate(['/']); //Enviamos al usuario al Home
-          }
-          else {
-            this.msj.Cargar("danger", "Fallo el cierre de sesión :(", 4000);
-          }
-          console.log(respuesta);
-          
-        })
-  }
+        if (respuesta.state == true) {
+          this.msj.Cargar("primary", respuesta.mensaje, 4000);
+          this.dir.navigate(['/']); //Enviamos al usuario al Home
+        }
+        else {
+          this.msj.Cargar("danger", "Fallo el cierre de sesión :(", 4000);
+        }
+        console.log(respuesta);
+        
+      })
+    
+  } //Fin de la función CerrarSesion()
 
 }

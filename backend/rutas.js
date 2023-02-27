@@ -86,6 +86,10 @@ app.post("/Cliente/CerrarSesion", function (peticion,respuesta) {
     usuariosRutas.CerrarSesion(peticion, respuesta);
 })
 
+// Api para definir opciones del menú lateral
+app.post("/Cliente/MenuDefinido", validarSesion, function (peticion,respuesta) {
+    usuariosRutas.MenuDefinido(peticion, respuesta);
+})
 
 
 
