@@ -11,12 +11,13 @@ var usuariosRutas = require(__dirname + "/controladores/controladorUsuarios.js")
 
 //Middlewear valida que la sesión esté activa para usar alguna appi
 var validarSesion = function (peticion, respuesta, next) {
-    if (peticion.session.nombre == undefined || peticion.session.nombre == "" || peticion.session.nombre == null || peticion.session.nombre == " ") {
-        respuesta.json({ state: false, mensaje: "Su sesión ha caducado", redireccion:true });
+    if (peticion.session._id == undefined || peticion.session._id == "" || peticion.session._id == null || peticion.session._id == " ") {
+        respuesta.json({ state: false, mensaje: "Su sesión ha caducado, por favor ingrese nuevamente", redireccion:true });
         return false;
     }
     else {
         next();
+        return true;
     }
 }
 
