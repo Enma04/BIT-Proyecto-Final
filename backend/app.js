@@ -7,8 +7,16 @@
     Las peticiones tipo GEt son las que se hacen desde la URL
 */
 
+//----------------------------------------------------------------------------------------------------------------
 //CONFIGURACIONES NECESARIAS DE PARTE DEL SERVIDOR
-//variables y librerías
+//----------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------
+//VARIABLES Y LIBRERÍAS
+//----------------------------------------------------------------------------------------------------------------
+
 var express = require('express');
 
 global.app = express();  //Para que app quede global
@@ -20,6 +28,14 @@ var bodyParse = require('body-parser');
 app.use(bodyParse.json());
 app.use(bodyParse.urlencoded({ extended: true }));
 
+//Variable para la configuración de los cors
+var cors_VAR = require('cors');  //Cross origin resource sharing
+
+//Configuración de la base de datos mongo con node (mongoose)
+const mongoose = require("mongoose");
+//Configuración de mongo para almacenar las sesiones en el backend
+const mongoStore = require("connect-mongo");
+
 //Creamos una variable que permita usar el paquete de sesionesde express
 var sesion = require("express-session")({
     secret: configuracion.claveOculta,  //Esta cadena de texto solo la conoce el dueño del servidor
@@ -27,9 +43,18 @@ var sesion = require("express-session")({
     saveUninitialized: true,  //Grabe cuando se inicialice
     cookie: { path: "/", httpOnly: true, maxAge: configuracion.tiempoSesion },  //ruta de almacenamiento
     name: "CookieFinal", //Nombre de la cookie
-    rolling: true //Siempre va
-
+    rolling: true, //Siempre va
+    store: mongoStore.create({mongoUrl: 'mongodb://127.0.0.1:27017/' + configuracion.database + 'Cookie' }),
 })
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------
+//IMPLEMENTACIONES Y CREACIÓN DE FUINCIONES
+//----------------------------------------------------------------------------------------------------------------
 
 app.use(sesion);  //Listo para usar la sesión
 
@@ -49,8 +74,6 @@ app.all("*", function (peticion, respuesta, next) {
 
 
 //Configuración para permitir o no el paso de usuarios a la información
-var cors_VAR = require('cors');  //Cross origin resource sharing
-
 app.use(cors_VAR({
     origin: function (origin, callback) {
 
@@ -68,7 +91,9 @@ app.use(cors_VAR({
 }))
 
 var sha256 = require('SHA256');
+const { Store, Cookie } = require('express-session');
 console.log("La palabra 'Hola' se codifica: ", sha256("Hola"));
+
 
 
 
@@ -76,9 +101,7 @@ console.log("La palabra 'Hola' se codifica: ", sha256("Hola"));
 
 //----------------------------------------------------------------------------------------------------------------
 //ESTA SECCIÓN SIEMPRE VA DE ÚLTIMO PROQUER ES LA CONEXIÓN CON EL SERVIDOR Y CON LA BASE DE DATOS
-
-//Configuración de la base de datos con node (mongoose)
-const mongoose = require("mongoose");
+//----------------------------------------------------------------------------------------------------------------
 
 //Se agrega esta línea quearroja la terminal, para evitar DeprecationWarning
 mongoose.set('strictQuery', false);
