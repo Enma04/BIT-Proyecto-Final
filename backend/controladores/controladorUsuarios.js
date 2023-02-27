@@ -256,11 +256,15 @@ usuariosController.LoginUsuario = function (peticion, respuesta) {
 } //Fin api Login
 
 // Api para ver cookies
-app.post("/Cliente/MostrarCookies", function (peticion,respuesta) {
-    respuesta.json({ clave: peticion.session });
-})
+usuariosController.MostrarCookies = function (peticion,respuesta) {
+    respuesta.json({ clave: peticion.session }); //Muestra lo que hay en session
+}
 
-
+// Api para cerrar sesión
+usuariosController.CerrarSesion = function (peticion,respuesta) {
+    peticion.session.destroy();
+    respuesta.json({ state: true, mensaje: "Sesión Finalizada" });
+}
 
 
 

@@ -19,6 +19,7 @@ import { MenuLateralComponent } from './MisComponentes/menu-lateral/menu-lateral
 import { UsuarioComponent } from './MisComponentes/usuario/usuario.component';
 import { PortafolioComponent } from './MisComponentes/portafolio/portafolio.component';
 import { FooterComponent } from './MisComponentes/footer/footer.component';
+import { InterceptorLoginUsuariosInterceptor } from './interceptores/interceptor-login-usuarios.interceptor';
 
 //HttpClientModule se encarga de realizar la petición
 //HTTP_INTERCEPTORS es una petición antes de que salga la petición real
@@ -51,7 +52,13 @@ import { FooterComponent } from './MisComponentes/footer/footer.component';
     // [(ngModel)] = "nombre"
     FormsModule,  
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorLoginUsuariosInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

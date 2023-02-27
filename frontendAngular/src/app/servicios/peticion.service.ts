@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PeticionService {
 
-  constructor(private http: HttpClient ) { }
+  constructor(private http: HttpClient, private dir: Router ) { }
 
   public url_local: string = "http://localhost:3000";
 
@@ -26,8 +27,11 @@ export class PeticionService {
         
         //Cuando llega la información entónces hace algo
         .then(
-        (respuesta: any) => {
-          resuelve(respuesta);
+          (respuesta: any) => {
+            if (respuesta.redireccion == true) {
+              this.dir.navigate(["/Login"]);
+            }
+            resuelve(respuesta);
         }
       )
     
@@ -53,8 +57,11 @@ export class PeticionService {
         
         //Cuando llega la información entónces hace algo
         .then(
-        (respuesta: any) => {
-          resuelve(respuesta);
+          (respuesta: any) => {
+            if (respuesta.redireccion == true) {
+              this.dir.navigate(["/Login"]);
+            }
+            resuelve(respuesta);
         }
       )
     

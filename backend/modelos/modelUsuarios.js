@@ -27,6 +27,7 @@ var esquemaUsuarios = new esquema({
     estadocivil    :String,
     email          :String,
     password       :String,
+    rol            :Number,
 })
 
 //Creamos el modelo (unión entre el nombre de la colección y el esquema de la colección)
@@ -49,15 +50,16 @@ const instancia = new miModelo;
 usuariosModel.Guardar = function (data, callback) {
 
     //DATOS ALMACENADOS EN BASE DE DATOS
-    instancia.cedula =       data.cedula;
-    instancia.nombre =       data.name;
-    instancia.apellido =     data.apellido;
-    instancia.edad =         data.edad;
-    instancia.direccion =    data.direccion;
-    instancia.telefono =     data.telefono;
+    instancia.cedula      =  data.cedula;
+    instancia.nombre      =  data.name;
+    instancia.apellido    =  data.apellido;
+    instancia.edad        =  data.edad;
+    instancia.direccion   =  data.direccion;
+    instancia.telefono    =  data.telefono;
     instancia.estadocivil =  data.estadocivil;
-    instancia.email =        data.email;
-    instancia.password =     SHA256(data.password + configuracion.pass);
+    instancia.email       =  data.email;
+    instancia.password    =  SHA256(data.password + configuracion.pass);
+    instancia.rol         =  2;
 
     instancia.save((error, correcto) => {
         if (error) {

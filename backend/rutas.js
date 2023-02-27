@@ -12,7 +12,7 @@ var usuariosRutas = require(__dirname + "/controladores/controladorUsuarios.js")
 //Middlewear valida que la sesión esté activa para usar alguna appi
 var validarSesion = function (peticion, respuesta, next) {
     if (peticion.session.nombre == undefined || peticion.session.nombre == "" || peticion.session.nombre == null || peticion.session.nombre == " ") {
-        respuesta.json({ state: false, mensaje: "Su sesión ha caducado" });
+        respuesta.json({ state: false, mensaje: "Su sesión ha caducado", redireccion:true });
         return false;
     }
     else {
@@ -81,6 +81,10 @@ app.post("/Cliente/MostrarCookies", function (peticion,respuesta) {
     usuariosRutas.MostrarCookies(peticion, respuesta);
 })
 
+// Api para cerrar sesion
+app.post("/Cliente/CerrarSesion", function (peticion,respuesta) {
+    usuariosRutas.CerrarSesion(peticion, respuesta);
+})
 
 
 

@@ -19,9 +19,9 @@ export class LoginComponent {
 
 
 
-  //--------------------------------------------------------------------
-  //VARIABLES DE LA CLASE
-  //--------------------------------------------------------------------
+//--------------------------------------------------------------------
+//VARIABLES DE LA CLASE
+//--------------------------------------------------------------------
 
   email        : string = "";
   password     : string = "";
@@ -29,19 +29,25 @@ export class LoginComponent {
 
 
 
-  //--------------------------------------------------------------------
-  //CONSTRUCTOR DE LA CLASE
-  //--------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------
+//CONSTRUCTOR DE LA CLASE
+//--------------------------------------------------------------------
+  
   //Importaciones necesarias en el constructor
   constructor(public msj:MensajesService, private PeticionDeLlegada:PeticionService, private dir:Router) {
     this.pag_activa = "active";
   }
 
 
-    //--------------------------------------------------------------------
-  //VARIABLES DE LA CLASE
-  //--------------------------------------------------------------------
 
+//--------------------------------------------------------------------
+//MÉTODOS Y FUNCIONES DE LA CLASE
+//--------------------------------------------------------------------
+
+  
+  //Función que me lleva a la zona privada
   iniciarSesion() {
 
     let post = {
@@ -53,9 +59,11 @@ export class LoginComponent {
       }
     }
 
-    //Petición de tipo Post
+      //Petición de tipo Post
       this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
         (respuesta: any) => {
+
+          console.log(respuesta);
 
           if (respuesta.state == false) {
             //Cargamos el mensaje de peligro, si falta un campo
@@ -69,11 +77,28 @@ export class LoginComponent {
             this.email = "";
             this.password = "";
 
-            this.dir.navigate(["/Dashboard"]); //Enviamos al usuario al Login
+            this.dir.navigate(["/Dashboard"]); //Enviamos al usuario a la zona privada
           }
         })  
   } //Fin de la función de iniciar sesión
 
+
+  //Función para ver las Cookies
+  MostrarCookies() {
+    let post = {
+      host: this.PeticionDeLlegada.url_local,
+      path: "/Cliente/MostrarCookies",
+      payload: {
+      }
+    }
+
+    //Petición de tipo Post
+    this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
+      (respuesta: any) => {
+        console.log(respuesta);
+      })
+
+  } //Fin función: MostrarCookies()
 
 
 } //FIN DE LA CLASE: LoginComponen
