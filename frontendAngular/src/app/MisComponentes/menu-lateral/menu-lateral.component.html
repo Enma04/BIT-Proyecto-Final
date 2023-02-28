@@ -1,13 +1,39 @@
 <div class="boton-background">
-  <div class="boton-func">
-    <button
-      type="submit"
-      class="btn btn-outline-primary"
-      (click)="CerrarSesion()"
-    >
-      Cerrar sesion
-    </button>
-  </div>
+  <ul class="list-btn">
+    <li class="li-btn">
+      <div>
+        <button
+          type="submit"
+          class="btn btn-outline-primary"
+          routerLink="/Home"
+        >
+          Home
+        </button>
+      </div>
+    </li>
+    <li class="li-btn">
+      <div>
+        <button
+          type="submit"
+          class="btn btn-outline-primary"
+          routerLink="/Portafolio"
+        >
+          Portafolio
+        </button>
+      </div>
+    </li>
+    <li class="li-btn">
+      <div>
+        <button
+          type="submit"
+          class="btn btn-outline-primary"
+          (click)="CerrarSesion()"
+        >
+          Cerrar sesion
+        </button>
+      </div>
+    </li>
+  </ul>
 </div>
 <div id="menulateral">
   <div class="item" *ngFor="let item of datosMenu">
