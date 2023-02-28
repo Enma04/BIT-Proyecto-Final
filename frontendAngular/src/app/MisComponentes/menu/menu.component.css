@@ -1,3 +1,7 @@
+.cont{
+    margin: 0px 100px;
+}
+
 .navbar {
     background-color: rgb(220, 220, 216);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
@@ -18,5 +22,5 @@
 }
 
 .nav-item:not(:first-child){
-    margin-left: 30px;
+    margin-left: 20px;
 }
