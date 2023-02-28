@@ -20,6 +20,7 @@ import { UsuarioComponent } from './MisComponentes/usuario/usuario.component';
 import { PortafolioComponent } from './MisComponentes/portafolio/portafolio.component';
 import { FooterComponent } from './MisComponentes/footer/footer.component';
 import { InterceptorLoginUsuariosInterceptor } from './interceptores/interceptor-login-usuarios.interceptor';
+import { NosotrosComponent } from './MisComponentes/nosotros/nosotros.component';
 
 //HttpClientModule se encarga de realizar la petición
 //HTTP_INTERCEPTORS es una petición antes de que salga la petición real
@@ -42,7 +43,8 @@ import { InterceptorLoginUsuariosInterceptor } from './interceptores/interceptor
     MenuLateralComponent,
     UsuarioComponent,
     PortafolioComponent,
-    FooterComponent
+    FooterComponent,
+    NosotrosComponent
   ],
   imports: [
     HttpClientModule,  //Se importa

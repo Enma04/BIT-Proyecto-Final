@@ -1,0 +1,27 @@
+div#espacio2 {
+    margin-top: 100px;
+}
+
+.egeneral {
+    padding: 1%;
+    margin: 3%;
+    border-radius: 15%;
+}
+
+.card-img-top{
+    height: 300px;
+}
+
+.card-text {
+    text-align: justify;
+}
+
+.card-title {
+    text-align: center;
+}
+
+p.frase {
+    font-style: italic;
+    font-size: 13px;
+    text-align: center;
+}

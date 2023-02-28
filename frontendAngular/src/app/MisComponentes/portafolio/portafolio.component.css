@@ -2,10 +2,9 @@ div#espacio2 {
     margin-top: 100px;
 }
 
-body.egeneral {
+.egeneral {
     margin: 3%;
     border-radius: 15%;
-    background-image: url(../../../assets/FondoZonaPrivada.jpeg);
 }
 
 .servicios:hover {
@@ -27,8 +26,4 @@ body.egeneral {
 
 .card-title {
     text-align: center;
-}
-
-.card {
-    background-image: url(../../../assets/FondoZonaPrivada.jpeg);
 }

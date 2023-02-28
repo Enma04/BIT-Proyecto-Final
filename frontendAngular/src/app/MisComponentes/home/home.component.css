@@ -15,7 +15,21 @@ section#hero {
     text-align: center;
 }
 
-p#textoinicial {
+.titulo-hero{
+    padding: 5%;
+    text-align: center;
+    font-size: 50px;
     font-weight: bold;
-    font-size: larger;
+    background-color: rgba(168, 168, 168, 0.651);
+    color: black;
+}
+
+.textoinicial {
+    padding: 5%;
+    text-align: justify;
+    font-size: 33px;
+    font-weight: bold;
+    background-color: rgba(168, 168, 168, 0.651);
+    color: black;
+    /*font-size: larger;*/
 }

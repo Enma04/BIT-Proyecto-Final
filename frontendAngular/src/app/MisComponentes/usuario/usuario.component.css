@@ -1,0 +1,47 @@
+div#registro2 {
+    margin: 2%;
+    border: solid 1px #ebebed;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 34px -13px rgba(0, 0, 0, 0.74);
+}
+
+#title-h3 {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.lista-botones {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.botones-reg {
+    display: flex;
+    justify-content: left;
+    margin-top: 10px;
+}
+
+.boton-func {
+    margin-bottom: 15px;
+}
+
+.boton-func:not(:first-child) {
+    margin-left: 20px;
+}
+
+/* CSS MARCE */
+div#espacio {
+    margin-top: 100px;
+}
+
+#tratamiento-datos {
+    font-size: 22;
+    color: rgb(11, 11, 11);
+    line-height: 1.8;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
