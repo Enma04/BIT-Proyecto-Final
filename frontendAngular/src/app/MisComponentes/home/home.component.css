@@ -20,8 +20,8 @@ section#hero {
     text-align: center;
     font-size: 50px;
     font-weight: bold;
-    background-color: rgba(168, 168, 168, 0.651);
-    color: black;
+    background-color: rgba(0, 0, 0, 0.432);
+    color: white;
 }
 
 .textoinicial {
@@ -29,7 +29,7 @@ section#hero {
     text-align: justify;
     font-size: 33px;
     font-weight: bold;
-    background-color: rgba(168, 168, 168, 0.651);
-    color: black;
+    background-color: rgba(0, 0, 0, 0.432);
+    color: white;
     /*font-size: larger;*/
 }

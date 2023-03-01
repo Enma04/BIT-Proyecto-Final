@@ -138,7 +138,7 @@ usuariosController.Modificar = function (peticion, respuesta) {
     direccion: peticion.body.direccion,
     telefono: peticion.body.telefono,
     estadocivil: peticion.body.estadocivil,
-    password: peticion.body.password,
+    //password: peticion.body.password,
   };
 
   //VALIDACIONES
@@ -153,7 +153,7 @@ usuariosController.Modificar = function (peticion, respuesta) {
     return false;
   }
 
-  if (
+  /*   if (
     data.password == "" ||
     data.password == null ||
     data.password == undefined ||
@@ -164,7 +164,7 @@ usuariosController.Modificar = function (peticion, respuesta) {
       mensaje: "El campo password es obligatorio",
     });
     return false;
-  }
+  } */
 
   //EDAD
   if (
@@ -354,6 +354,7 @@ usuariosController.MenuDefinido = function (peticion, respuesta) {
       poner: "pagActiva",
       datos: [
         { nombre: "Dashboard", destino: "/Dashboard" },
+        { nombre: "Mi Perfil", destino: "/Perfil" },
         { nombre: "Actualizar Datos", destino: "/Usuario" },
         { nombre: "Productos", destino: "/Productos" },
       ],
@@ -365,6 +366,7 @@ usuariosController.MenuDefinido = function (peticion, respuesta) {
       poner: "pagActiva",
       datos: [
         { nombre: "Dashboard", destino: "/Dashboard" },
+        { nombre: "Mi Perfil", destino: "/Perfil" },
         { nombre: "Actualizar Datos", destino: "/Usuario" },
       ],
     });

@@ -1,7 +1,5 @@
 <app-menu-lateral></app-menu-lateral>
 <div class="ventana-flotante">
-  <h3>Espacio del usuario!</h3>
-
   <div id="registro2">
     <h3 id="title-h3">ACTUALIZAR DATOS</h3>
     <div class="form-row">
@@ -125,7 +123,13 @@
     </div>
     <div class="botones-reg">
       <div class="boton-func">
-        <button class="btn btn-primary" type="submit">Actualizar</button>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          (click)="ActualizarUsuario()"
+        >
+          Actualizar
+        </button>
       </div>
     </div>
   </div>

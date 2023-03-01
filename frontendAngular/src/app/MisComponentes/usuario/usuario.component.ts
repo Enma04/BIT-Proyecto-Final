@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MensajesService } from 'src/app/servicios/mensajes.service';
 import { PeticionService } from 'src/app/servicios/peticion.service';
+import { MensajesComponent } from '../mensajes/mensajes.component';
 
 @Component({
   selector: 'app-usuario',
@@ -31,7 +33,7 @@ export class UsuarioComponent implements OnInit {
   //--------------------------------------------------------------------------------------------------
   //Constructor de la clase que recibe un servicio de peticiones
   //--------------------------------------------------------------------------------------------------
-  constructor(private PeticionDeLlegada: PeticionService, private dir: Router) { }
+  constructor(private PeticionDeLlegada: PeticionService, private dir: Router, public msj: MensajesService) { }
 
 
 
@@ -74,10 +76,44 @@ export class UsuarioComponent implements OnInit {
 
       })
     
-    
 
   }//Fin de la función listarDatos
 
-  
 
-}
+  //Función para actualizar los datos
+  ActualizarUsuario() {
+    
+    let post = {
+      host: this.PeticionDeLlegada.url_local,
+      path: "/Cliente/Modificar",
+      payload: {
+        cedula      : this.cedula,
+        name        : this.nombre,
+        apellido    : this.apellido,
+        edad        : this.edad,
+        direccion   : this.direccion,
+        telefono    : this.telefono,
+        estadocivil : this.estadocivil,
+      }
+    }
+
+    //Petición de tipo Post
+    this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
+      (respuesta: any) => {
+
+        console.log(respuesta);
+        if (respuesta.state == false) {
+          //Cargamos el mensaje de peligro, si falta un campo
+          this.msj.Cargar("danger", respuesta.mensaje, 4000);
+        }
+        else {
+          //Cargamos el mensaje exitoso
+          this.msj.Cargar("success", respuesta.mensaje, 4000);
+        }
+      })
+
+  }// Fin de la función ActualizarUsuario()
+
+
+
+} //Fin de la clase

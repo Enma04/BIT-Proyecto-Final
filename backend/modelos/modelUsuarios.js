@@ -112,7 +112,7 @@ usuariosModel.Modificar = function (data, callback) {
             direccion: data.direccion,
             telefono: data.telefono,
             estadocivil: data.estadocivil,
-            password: SHA256(data.password + configuracion.pass),
+            //password: SHA256(data.password + configuracion.pass),
           },
           (error, usuarioActualizado) => {
             if (error) {
