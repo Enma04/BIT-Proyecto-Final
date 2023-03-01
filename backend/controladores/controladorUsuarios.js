@@ -213,18 +213,22 @@ usuariosController.Eliminar = function (peticion, respuesta) {
 
 //Api ListarUsuario, tipo READ de 1 usuario
 usuariosController.ListarUsuario = function (peticion, respuesta) {
-  let data = { cedula: peticion.body.cedula };
+  let data = { _id: peticion.session._id };
 
   if (
-    data.cedula == "" ||
-    data.cedula == null ||
-    data.cedula == undefined ||
-    data.cedula == " "
+    data._id == "" ||
+    data._id == null ||
+    data._id == undefined ||
+    data._id == " "
   ) {
-    respuesta.json({ state: false, mensaje: "El campo cedula es obligatorio" });
+    respuesta.json({
+      state: false,
+      mensaje: "No se pudo conectar con el usuario",
+    });
     return false;
   } else {
     modelUsuario.ListarUsuario(data, function (res) {
+      console.log(res);
       respuesta.json(res);
     });
   }
@@ -349,8 +353,8 @@ usuariosController.MenuDefinido = function (peticion, respuesta) {
       state: true,
       poner: "pagActiva",
       datos: [
-        { nombre: "Datos Usuario", destino: "/Usuario" },
         { nombre: "Dashboard", destino: "/Dashboard" },
+        { nombre: "Actualizar Datos", destino: "/Usuario" },
         { nombre: "Productos", destino: "/Productos" },
       ],
     });
@@ -360,8 +364,8 @@ usuariosController.MenuDefinido = function (peticion, respuesta) {
       state: true,
       poner: "pagActiva",
       datos: [
-        { nombre: "Datos Usuario", destino: "/Usuario" },
         { nombre: "Dashboard", destino: "/Dashboard" },
+        { nombre: "Actualizar Datos", destino: "/Usuario" },
       ],
     });
   } //Fin de los demás roles

@@ -11,6 +11,7 @@
           type="text"
           class="form-control"
           id="validationDefault01"
+          [(ngModel)]="nombre"
           required
         />
       </div>
@@ -20,6 +21,7 @@
           type="text"
           class="form-control"
           id="validationDefault03"
+          [(ngModel)]="apellido"
           required
         />
       </div>
@@ -35,7 +37,12 @@
       </div>
       <div class="col-md-4 mb-3">
         <label for="validationDefault05">Numero documento identificación</label>
-        <input type="text" class="form-control" id="validationDefault05" />
+        <input
+          type="text"
+          class="form-control"
+          id="validationDefault05"
+          [(ngModel)]="cedula"
+        />
       </div>
 
       <div class="col-md-4 mb-3">
@@ -44,6 +51,7 @@
           type="text"
           class="form-control"
           id="validationDefault06"
+          [(ngModel)]="telefono"
           required
         />
       </div>
@@ -53,6 +61,7 @@
           type="text"
           class="form-control"
           id="validationDefault07"
+          [(ngModel)]="edad"
           required
         />
       </div>
@@ -65,13 +74,18 @@
           type="text"
           class="form-control"
           id="validationDefault08"
+          [(ngModel)]="direccion"
           required
         />
       </div>
 
       <div class="form-group col-md-4 mb-3">
         <label for="disabledSelect">Estado civil</label>
-        <select id="disabledSelect" class="form-control">
+        <select
+          id="disabledSelect"
+          class="form-control"
+          [(ngModel)]="estadocivil"
+        >
           <option></option>
           <option>Soltero</option>
           <option>Casado</option>
