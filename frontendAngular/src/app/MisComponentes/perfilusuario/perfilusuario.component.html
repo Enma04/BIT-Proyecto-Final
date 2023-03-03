@@ -10,4 +10,49 @@
     <div class="filas">Teléfono : {{ DatosUsuario[0].telefono }}</div>
     <div class="filas">Número identificación: {{ DatosUsuario[0].cedula }}</div>
   </div>
+
+  <div class="box-table">
+    <table class="table table-bordered">
+      <!-- primer elemento -->
+      <thead>
+        <tr>
+          <th class="encabezado" scope="col">Nombre:</th>
+          <td class="contenido table-danger" scope="col">
+            {{ DatosUsuario[0].nombre }}
+          </td>
+        </tr>
+        <tr>
+          <th class="encabezado" scope="col">Apellido:</th>
+          <td class="contenido table-danger" scope="col">
+            {{ DatosUsuario[0].apellido }}
+          </td>
+        </tr>
+        <tr>
+          <th class="encabezado" scope="col">Edad:</th>
+          <td class="contenido table-danger" scope="col">
+            {{ DatosUsuario[0].edad }}
+          </td>
+        </tr>
+        <tr>
+          <th class="encabezado" scope="col">Dirección:</th>
+          <td class="contenido table-danger" scope="col">
+            {{ DatosUsuario[0].direccion }}
+          </td>
+        </tr>
+        <tr>
+          <th class="encabezado" scope="col">Telefono:</th>
+          <td class="contenido table-danger" scope="col">
+            {{ DatosUsuario[0].telefono }}
+          </td>
+        </tr>
+        <tr>
+          <th class="encabezado" scope="col">Número de identificación:</th>
+          <td class="contenido table-danger" scope="col">
+            {{ DatosUsuario[0].cedula }}
+          </td>
+        </tr>
+      </thead>
+      <!-- Fin primer elemento -->
+    </table>
+  </div>
 </div>
