@@ -1,5 +1,6 @@
 #bloque-mensajes{
     position: sticky;
+    z-index: 2000;
     width: 100%;
 }
 

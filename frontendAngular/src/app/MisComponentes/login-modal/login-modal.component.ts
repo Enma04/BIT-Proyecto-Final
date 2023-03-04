@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MensajesService } from 'src/app/servicios/mensajes.service';
 import { PeticionService } from 'src/app/servicios/peticion.service';
+
+
+declare var $: any;
 
 @Component({
   selector: 'app-login-modal',
   templateUrl: './login-modal.component.html',
   styleUrls: ['./login-modal.component.css']
 })
-export class LoginModalComponent {
+export class LoginModalComponent implements OnInit {
 
 
   
@@ -33,6 +36,11 @@ export class LoginModalComponent {
     this.pag_activa = "active";
   }
 
+
+
+  ngOnInit(): void {
+    $('#exampleModalCenter').modal('show');
+  }
 
 
 //--------------------------------------------------------------------
