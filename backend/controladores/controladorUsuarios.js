@@ -361,16 +361,18 @@ usuariosController.MenuDefinido = function (peticion, respuesta) {
     });
   } //Fin rol 1
   else {
-    respuesta.json({
-      state: true,
-      poner: "pagActiva",
-      datos: [
-        { nombre: "Dashboard", destino: "/Dashboard" },
-        { nombre: "Mi Perfil", destino: "/Perfil" },
-        { nombre: "Actualizar Datos", destino: "/Usuario" },
-      ],
-    });
-  } //Fin de los demás roles
+    if (peticion.session.rol == 2) {
+      respuesta.json({
+        state: true,
+        poner: "pagActiva",
+        datos: [
+          { nombre: "Dashboard", destino: "/Dashboard" },
+          { nombre: "Mi Perfil", destino: "/Perfil" },
+          { nombre: "Actualizar Datos", destino: "/Usuario" },
+        ],
+      });
+    } //Fin de los demás roles
+  }
 }; //Fin api MenuDefinido
 
 //---------------------------------------------------------------------------------------
