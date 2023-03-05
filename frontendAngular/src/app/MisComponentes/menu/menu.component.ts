@@ -21,6 +21,7 @@ export class MenuComponent {
   email        : string = "";
   password     : string = "";
   pag_activa   : string = "";
+  check: boolean = false;
 
 
 
@@ -39,7 +40,12 @@ export class MenuComponent {
 //MÉTODOS Y FUNCIONES DE LA CLASE
 //--------------------------------------------------------------------
 
+  //Función para validar la aceptación de los términos y condiciones
+  Terminos() {
+    this.check = !this.check;
+  }
   
+
   //Función que me lleva a la zona privada
   iniciarSesion() {
 
@@ -75,10 +81,13 @@ export class MenuComponent {
   } //Fin de la función de iniciar sesión
 
 
-
   //Función qque caga la ventana modal
   CargarModal() {
     $('#exampleModalCenter').modal('show');
+  }
+
+  CerrarModal() {
+    $('#exampleModalCenter').modal('close');
   }
 
 }

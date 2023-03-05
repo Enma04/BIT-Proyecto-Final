@@ -22,7 +22,7 @@ export class LoginModalComponent implements OnInit {
   email        : string = "";
   password     : string = "";
   pag_activa   : string = "";
-
+  check: boolean = false;
 
 
 
@@ -47,6 +47,10 @@ export class LoginModalComponent implements OnInit {
 //MÉTODOS Y FUNCIONES DE LA CLASE
 //--------------------------------------------------------------------
 
+  //Función para validar la aceptación de los términos y condiciones
+  terminos() {
+    this.check = !this.check;
+  }
   
   //Función que me lleva a la zona privada
   iniciarSesion() {
@@ -103,4 +107,4 @@ export class LoginModalComponent implements OnInit {
 
 
 
-}
+} //FIN DE LA CLASE

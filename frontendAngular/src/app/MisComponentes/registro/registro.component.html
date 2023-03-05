@@ -263,6 +263,7 @@
           type="checkbox"
           value=""
           id="invalidCheck2"
+          (click)="Terminos()"
           required
         />
         <label class="form-check-label" for="invalidCheck2">
@@ -272,7 +273,12 @@
     </div>
     <div class="botones-reg">
       <div class="boton-func">
-        <button class="btn btn-primary" type="submit" (click)="Registrar()">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!check"
+          (click)="Registrar()"
+        >
           Registrar
         </button>
       </div>
@@ -284,6 +290,7 @@
         </button>
       </div>
     </div>
+    <a routerLink="/Login"> ¿Ya tienes una cuenta? </a>
   </div>
 
   <!-- TABLA PARA MOSTRAR DATOS -->

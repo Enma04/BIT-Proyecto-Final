@@ -34,6 +34,7 @@ export class RegistroComponent implements OnInit {
   password: string = "";
   password_check: string = "";
 
+  check: boolean = false;
   mostrar: boolean = true;
   mostrar_tabla: boolean = false;
   ListaDatos: any[] = [];
@@ -191,6 +192,10 @@ export class RegistroComponent implements OnInit {
   } //Fin de la función de validación de datos desde el FrontEnd
 
 
+  //Función para validar la aceptación de los términos y condiciones
+  Terminos() {
+    this.check = !this.check;
+  } //Fin Función Terminos()
 
   //Guardar la información del cliente
   Registrar() {

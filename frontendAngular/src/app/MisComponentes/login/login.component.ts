@@ -26,8 +26,7 @@ export class LoginComponent {
   email        : string = "";
   password     : string = "";
   pag_activa   : string = "";
-
-
+  check        : boolean = false;
 
 
 
@@ -46,6 +45,10 @@ export class LoginComponent {
 //MÉTODOS Y FUNCIONES DE LA CLASE
 //--------------------------------------------------------------------
 
+  //Función para validar la aceptación de los términos y condiciones
+  Terminos() {
+    this.check = !this.check;
+  } //Fin Función Terminos()
   
   //Función que me lleva a la zona privada
   iniciarSesion() {

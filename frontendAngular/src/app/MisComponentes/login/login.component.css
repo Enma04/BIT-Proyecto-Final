@@ -14,5 +14,11 @@
 .lista-botones {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#link-registro{
+    margin-left: 60px;
+    margin-right: auto;
 }
