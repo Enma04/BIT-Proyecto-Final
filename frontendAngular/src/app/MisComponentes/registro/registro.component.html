@@ -126,6 +126,7 @@
           id="validationDefault01"
           [(ngModel)]="nombre"
           required
+          placeholder="example name"
         />
       </div>
       <div class="col-md-4 mb-3">
@@ -136,6 +137,7 @@
           id="validationDefault03"
           [(ngModel)]="apellido"
           required
+          placeholder="example last name"
         />
       </div>
       <div class="form-group col-md-4 mb-3">
@@ -158,17 +160,18 @@
         />
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationDefaultUsername">Correo</label>
+        <label for="validationDefaultUsername">E-mail</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroupPrepend2">@</span>
           </div>
           <input
-            type="text"
+            type="email"
             class="form-control"
             id="validationDefaultUsername"
             [(ngModel)]="email"
             required
+            placeholder="example@mail.com"
           />
         </div>
       </div>
@@ -188,11 +191,15 @@
       <div class="col-md-4 mb-3">
         <label for="validationDefault07">Edad</label>
         <input
-          type="text"
+          type="number"
           class="form-control"
           id="validationDefault07"
           [(ngModel)]="edad"
+          min="18"
+          max="105"
+          step="1"
           required
+          placeholder="Usted debe ser mayor de edad"
         />
       </div>
 

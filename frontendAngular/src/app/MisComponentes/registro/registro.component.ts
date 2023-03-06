@@ -180,7 +180,21 @@ export class RegistroComponent implements OnInit {
                   return false;
                 }
                 else {
-                  return true;
+                  if (this.edad < 18 ) {
+                    this.msj.Cargar("danger", "Debes ser mayor de edad", 4000);
+                    return false;
+                  }
+                  else {
+                    if (this.edad >105 ) {
+                      this.msj.Cargar("danger", "Lo sentimos, tu edad es muy avanzada :(", 4000);
+                      return false;
+                    }
+                    else {
+                      return true;
+                    }
+                    
+                  }
+                  
                 }
               } //Fin del sexto else
             } //Fin del quinto else
