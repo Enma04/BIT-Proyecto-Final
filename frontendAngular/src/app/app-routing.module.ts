@@ -12,6 +12,7 @@ import { PortafolioComponent } from './MisComponentes/portafolio/portafolio.comp
 import { NosotrosComponent } from './MisComponentes/nosotros/nosotros.component';
 import { PerfilusuarioComponent } from './MisComponentes/perfilusuario/perfilusuario.component';
 import { LoginModalComponent } from './MisComponentes/login-modal/login-modal.component';
+import { ReadServiciosComponent } from './MisComponentes/read-servicios/read-servicios.component';
 
 
 //Se crea una constante de tipo Routes que es una clase que se crea desde
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'Nosotros', component: NosotrosComponent, pathMatch: 'full' },
   { path: 'Perfil', component: PerfilusuarioComponent, pathMatch: 'full' },
   { path: 'LoginModal', component: LoginModalComponent, pathMatch: 'full' },
+  { path: 'ReadServicios', component: ReadServiciosComponent, pathMatch: 'full' },
   { path:'**', component: Page404Component, pathMatch: 'full' },  //Envía a esta página si no se especifica bien la ruta
 ];
 

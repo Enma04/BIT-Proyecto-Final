@@ -3,6 +3,13 @@
     height: 55px;
     background-color: rgb(209, 96, 76);
     box-shadow: 3px 4px 5px 0px rgb(0 0 0 / 47%);
+    display: flex;
+    align-items: center;
+}
+
+div.row{
+    justify-content: center;
+    align-items: center;
 }
 
 .list-btn{
@@ -15,26 +22,6 @@
     align-items: center;
     height: 100%;
     margin: 0;
-}
-
-.li-btn:nth-child(1){
-    position: absolute;
-    left: 180px;
-}
-
-.li-btn:nth-child(2) {
-    position: absolute;
-    left: 260px;
-}
-
-.li-btn{
-    margin-right: 40px;
-}
-
-.boton-func{
-    position: absolute;
-    right: 0;
-    top: 8px;
 }
 
 .btn-outline-primary{
