@@ -33,3 +33,17 @@ section#hero {
     color: white;
     /*font-size: larger;*/
 }
+
+.d-block{
+    height: 600px;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon
+{
+    padding: 8px;
+    background-color: black;
+    width: 70px;
+    height: 70px;
+    border-radius: 30%;
+}
