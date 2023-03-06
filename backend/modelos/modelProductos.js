@@ -14,7 +14,7 @@ var esquemaProductos = new esquema({
 });
 
 //Creamos el modelo (unión entre el nombre de la colección y el esquema de la colección)
-const miModelo = mongoose.model("usuarios", esquemaProductos);
+const miModelo = mongoose.model("productos", esquemaProductos);
 
 //Creamos una instancia del modelo
 const instancia = new miModelo();

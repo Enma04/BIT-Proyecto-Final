@@ -10,7 +10,7 @@ var modelProductos = require(__dirname +
 */
 
 //Api Guardar
-productosController.Guardar = function (peticion, respuesta) {
+productosController.GuardarProducto = function (peticion, respuesta) {
   //Guardamos los datos recolectados desde el body (desde la página web)
   //para realizar las respectivas verificaciones
   let data = {
@@ -77,20 +77,20 @@ productosController.Guardar = function (peticion, respuesta) {
     return false;
   }
 
-  modelUsuario.Guardar(data, function (res) {
+  modelUsuario.GuardarProducto(data, function (res) {
     respuesta.json(res);
   });
 }; //Fin api Guardar
 
-//Api ListarUsuarios
-productosController.ListarUsuarios = function (peticion, respuesta) {
-  modelUsuario.ListarUsuarios(null, function (res) {
+//Api ListarProductos
+productosController.ListarProductos = function (peticion, respuesta) {
+  modelUsuario.ListarProductos(null, function (res) {
     respuesta.json(res);
   });
-}; //Fin api Listar usuarios
+}; //Fin api Listar productos
 
 //Api Modificar
-productosController.Modificar = function (peticion, respuesta) {
+productosController.ModificarProducto = function (peticion, respuesta) {
   let data = {
     cedula: peticion.body.cedula,
     name: peticion.body.name,
@@ -139,13 +139,13 @@ productosController.Modificar = function (peticion, respuesta) {
   }
 
   //Respuesta del servidor
-  modelUsuario.Modificar(data, function (res) {
+  modelUsuario.ModificarProducto(data, function (res) {
     respuesta.json(res);
   });
 }; //Fin api Modificar
 
 //Api Eliminar
-productosController.Eliminar = function (peticion, respuesta) {
+productosController.EliminarProducto = function (peticion, respuesta) {
   let data = {
     cedula: peticion.body.cedula,
   };
@@ -163,7 +163,7 @@ productosController.Eliminar = function (peticion, respuesta) {
   }
 
   //Respuesta del servidor
-  modelUsuario.Eliminar(data, function (res) {
+  modelUsuario.EliminarProducto(data, function (res) {
     respuesta.json(res);
   });
 }; //Fin api Eiliminar

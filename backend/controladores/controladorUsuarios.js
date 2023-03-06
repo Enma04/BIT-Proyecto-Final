@@ -356,7 +356,7 @@ usuariosController.MenuDefinido = function (peticion, respuesta) {
         { nombre: "Dashboard", destino: "/Dashboard" },
         { nombre: "Mi Perfil", destino: "/Perfil" },
         { nombre: "Actualizar Datos", destino: "/Usuario" },
-        { nombre: "Productos", destino: "/Productos" },
+        { nombre: "Ver Servicios", destino: "/ReadServicios" },
       ],
     });
   } //Fin rol 1
@@ -369,6 +369,7 @@ usuariosController.MenuDefinido = function (peticion, respuesta) {
           { nombre: "Dashboard", destino: "/Dashboard" },
           { nombre: "Mi Perfil", destino: "/Perfil" },
           { nombre: "Actualizar Datos", destino: "/Usuario" },
+          { nombre: "Mis Servicios", destino: "/Productos" },
         ],
       });
     } //Fin de los demás roles

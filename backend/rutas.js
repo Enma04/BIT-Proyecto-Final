@@ -35,7 +35,7 @@ var validarSesion = function (peticion, respuesta, next) {
 
 /*
 ---------------------//---------------------------------//-------------- 
-------------//--------------APIS DE TIPO (C.R.U.D)-----------//--------- 
+------------//--------------APIS USUARIO DE TIPO (C.R.U.D)-----------//--------- 
 ---------------------//---------------------------------//--------------
 */
 
@@ -99,6 +99,35 @@ app.post(
     usuariosRutas.MenuDefinido(peticion, respuesta);
   }
 );
+
+/*
+---------------------//---------------------------------//-------------- 
+------------//--------------APIS PRODUCTOS DE TIPO (C.R.U.D)-----------//--------- 
+---------------------//---------------------------------//--------------
+*/
+
+// Api CREATE
+app.post("/Servicio/GuardarProducto", function (peticion, respuesta) {
+  productosRutas.GuardarProducto(peticion, respuesta);
+});
+
+// Api READ
+app.post(
+  "/Servicio/ListarProductos",
+  /*validarSesion, */ function (peticion, respuesta) {
+    productosRutas.ListarProductos(peticion, respuesta);
+  }
+);
+
+// Api UPDATE
+app.post("/Servicio/ModificarProducto", function (peticion, respuesta) {
+  productosRutas.ModificarProducto(peticion, respuesta);
+});
+
+// Api DELETE
+app.post("/Servicio/EliminarProducto", function (peticion, respuesta) {
+  productosRutas.EliminarProducto(peticion, respuesta);
+});
 
 //--------------------------------------------------------------------------
 //PRUEBAS PARA VER EN POSTMAN

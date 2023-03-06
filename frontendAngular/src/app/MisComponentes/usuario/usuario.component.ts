@@ -117,6 +117,8 @@ export class UsuarioComponent implements OnInit {
         else {
           //Cargamos el mensaje exitoso
           this.msj.Cargar("success", respuesta.mensaje, 4000);
+
+          this.dir.navigate(["/Perfil"]); //Enviamos al usuario ver sus datos actualizados
         }
       })
 
