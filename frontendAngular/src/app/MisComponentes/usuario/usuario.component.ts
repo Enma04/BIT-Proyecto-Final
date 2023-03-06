@@ -29,6 +29,8 @@ export class UsuarioComponent implements OnInit {
   password: string = "";
   password_check: string = "";
 
+  check: boolean = false;
+
 
   //--------------------------------------------------------------------------------------------------
   //Constructor de la clase que recibe un servicio de peticiones
@@ -72,6 +74,7 @@ export class UsuarioComponent implements OnInit {
         this.telefono = respuesta.data[0].telefono;
         this.direccion = respuesta.data[0].direccion;
         this.edad = respuesta.data[0].edad;
+        this.estadocivil = respuesta.data[0].estadocivil;
         //console.log(this.DatosUsuario);
 
       })
@@ -79,6 +82,11 @@ export class UsuarioComponent implements OnInit {
 
   }//Fin de la función listarDatos
 
+
+  //Función para validar la aceptación de los términos y condiciones
+  Terminos() {
+    this.check = !this.check;
+  } //Fin Función Terminos()
 
   //Función para actualizar los datos
   ActualizarUsuario() {

@@ -26,7 +26,6 @@
       <div class="form-group col-md-4 mb-3">
         <label for="disabledSelect1">Tipo identificación</label>
         <select id="disabledSelect1" class="form-control">
-          <option></option>
           <option>Cedula</option>
           <option>Cedula extranjeria</option>
           <option>Pasaporte</option>
@@ -84,7 +83,6 @@
           class="form-control"
           [(ngModel)]="estadocivil"
         >
-          <option></option>
           <option>Soltero</option>
           <option>Casado</option>
           <option>Divorciado</option>
@@ -114,10 +112,11 @@
           type="checkbox"
           value=""
           id="invalidCheck2"
+          (click)="Terminos()"
           required
         />
         <label class="form-check-label" for="invalidCheck2">
-          Acepto terminos y condiciones
+          Acepto términos y condiciones
         </label>
       </div>
     </div>
@@ -126,6 +125,7 @@
         <button
           class="btn btn-primary"
           type="submit"
+          [disabled]="!check"
           (click)="ActualizarUsuario()"
         >
           Actualizar

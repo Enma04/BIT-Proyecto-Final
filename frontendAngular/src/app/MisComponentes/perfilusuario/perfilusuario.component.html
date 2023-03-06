@@ -1,7 +1,7 @@
 <app-menu-lateral></app-menu-lateral>
 
 <div class="ventana-flotante">
-  <div id="caja">
+  <!--   <div id="caja">
     <h3 id="h3-misdatos">MIS DATOS</h3>
     <div class="filas">Nombre : {{ DatosUsuario[0].nombre }}</div>
     <div class="filas">Apellido : {{ DatosUsuario[0].apellido }}</div>
@@ -9,11 +9,10 @@
     <div class="filas">Dirección : {{ DatosUsuario[0].direccion }}</div>
     <div class="filas">Teléfono : {{ DatosUsuario[0].telefono }}</div>
     <div class="filas">Número identificación: {{ DatosUsuario[0].cedula }}</div>
-  </div>
+  </div> -->
 
-  <div class="box-table">
+  <!--   <div class="box-table">
     <table class="table table-bordered">
-      <!-- primer elemento -->
       <thead>
         <tr>
           <th class="encabezado" scope="col">Nombre:</th>
@@ -52,7 +51,65 @@
           </td>
         </tr>
       </thead>
-      <!-- Fin primer elemento -->
     </table>
+  </div> -->
+
+  <div id="listarinterna">
+    <img
+      src="../../../assets/sinFoto.jpeg"
+      class="centrarobj img-fluid rounded-circle col-md-2"
+      alt="..."
+    />
+    <h3 class="texto-h3 centrarobj">MI PERFIL</h3>
+    <button type="submit" class="boton centrarobj btn-outline-primary">
+      Agregar / Actualizar foto perfil
+    </button>
+
+    <table id="tablalistar" class="table table-responsive centrarobj">
+      <thead></thead>
+      <tbody>
+        <tr>
+          <td class="font-weight-bold">Número de Identificación</td>
+          <td id="cedula">{{ DatosUsuario[0].cedula }}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">Nombre</td>
+          <td id="nombre">{{ DatosUsuario[0].nombre }}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">Apellido</td>
+          <td id="apellido">{{ DatosUsuario[0].apellido }}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">Edad</td>
+          <td id="edad">{{ DatosUsuario[0].edad }}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">Dirección</td>
+          <td id="direccion">{{ DatosUsuario[0].direccion }}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">Teléfono</td>
+          <td id="telefono">{{ DatosUsuario[0].telefono }}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">Estado Civil</td>
+          <td id="ecivil">{{ DatosUsuario[0].estadocivil }}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">E-mail</td>
+          <td id="email">{{ DatosUsuario[0].email }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button
+      type="submit"
+      class="boton centrarobj btn-outline-primary"
+      routerLink="/Usuario"
+    >
+      Actualizar mis datos
+    </button>
   </div>
+
+  <!-- Fin de la ventana flotante -->
 </div>
