@@ -3,9 +3,136 @@
   <h3>read-servicios works!</h3>
   <div class="container">
     <div class="row">
-      <div class="col-sm">One of three columns</div>
-      <div class="col-sm">One of three columns</div>
-      <div class="col-sm">One of three columns</div>
+      <div class="col-sm">
+        <label>
+          <h5>Agregar servicio</h5>
+          <button type="submit" (click)="CargarModal()">+</button>
+        </label>
+      </div>
+      <div class="col-sm">
+        <label>
+          <h5>Actualizar servicio</h5>
+          <button type="submit">Update</button>
+        </label>
+      </div>
+      <div class="col-sm">
+        <label>
+          <h5>Eliminar servicio</h5>
+          <button type="submit">X</button>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Registrar Servicio -->
+<div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-top" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="titulo-modal">
+          <h4>REGISTRO DE SERVICIO</h4>
+        </div>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="registro2">
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="code">Código </label>
+              <input
+                type="number"
+                class="form-control"
+                id="code"
+                min="0"
+                [(ngModel)]="codigo"
+                required
+                placeholder="code of service"
+              />
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="name">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                [(ngModel)]="nombre"
+                required
+                placeholder="Name of service visible to client"
+              />
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="precio">Precio</label>
+              <input
+                type="number"
+                class="form-control"
+                id="precio"
+                min="0"
+                step="1000"
+                placeholder="Value of service"
+                required
+                [(ngModel)]="precio"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <p id="tratamiento-datos">
+              Sanchez Soluciones te informa sobre su Política de Privacidad
+              respecto del tratamiento y protección de los datos de carácter
+              administrativo y de servicios que puedan ser recabados por la
+              navegación o contratación de servicios a través del presente sitio
+              Web. En este sentido, el Titular garantiza el cumplimiento de la
+              normativa vigente en materia de protección de datos empresariales,
+              reflejada en la Ley Orgánica 3/2018, de 5 de diciembre, de
+              Protección de la integridad de los datos, y de Garantía de
+              Derechos Digitales (LOPD GDD). Cumple también con el Reglamento
+              (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de abril
+              de 2016 relativo a la protección de las personas físicas (RGPD).
+              El uso de sitio Web implica la aceptación de esta Política de
+              Privacidad así como las condiciones incluidas en el Aviso Legal.
+            </p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="invalidCheck2"
+                (click)="Terminos()"
+                required
+              />
+              <label class="form-check-label" for="invalidCheck2">
+                Acepto términos y condiciones
+              </label>
+            </div>
+          </div>
+          <div class="botones-reg">
+            <div class="boton-func">
+              <button class="btn btn-primary" type="submit" [disabled]="!check">
+                Añadir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
     </div>
   </div>
 </div>
