@@ -24,6 +24,7 @@ import { NosotrosComponent } from './MisComponentes/nosotros/nosotros.component'
 import { PerfilusuarioComponent } from './MisComponentes/perfilusuario/perfilusuario.component';
 import { LoginModalComponent } from './MisComponentes/login-modal/login-modal.component';
 import { ReadServiciosComponent } from './MisComponentes/read-servicios/read-servicios.component';
+import { ContactenosComponent } from './MisComponentes/contactenos/contactenos.component';
 
 //HttpClientModule se encarga de realizar la petición
 //HTTP_INTERCEPTORS es una petición antes de que salga la petición real
@@ -50,7 +51,8 @@ import { ReadServiciosComponent } from './MisComponentes/read-servicios/read-ser
     NosotrosComponent,
     PerfilusuarioComponent,
     LoginModalComponent,
-    ReadServiciosComponent
+    ReadServiciosComponent,
+    ContactenosComponent
   ],
   imports: [
     HttpClientModule,  //Se importa

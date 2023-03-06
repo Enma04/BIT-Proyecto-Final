@@ -1,0 +1,87 @@
+<app-menu></app-menu>
+<div class="ventana-flotante2">
+  <div class="contenedor">
+    <form>
+      <h4 id="contactenos-h4">
+        Para Sanchez Soluciones es de vital importancia conocer sus peticiones,
+        quejas, reclamos y/o felicitaciones (PQRSF), por favor permitanos
+        conocer un poco mas acerca de su opinión
+      </h4>
+      <section class="form-row">
+        <div class="col-md-4 mb-3">
+          <label class="label-text" for="nombresyapellidos"
+            >Nombres y apellidos</label
+          >
+          <input id="nombresyapellidos" type="text" class="form-control" />
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label class="label-text" for="contactenosemail">Email</label>
+          <input id="contactenosemail" type="email" class="form-control" />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="label-text" for="contactenostelefono">Telefono</label>
+          <input id="contactenostelefono" type="text" class="form-control" />
+        </div>
+      </section>
+
+      <div class="form-group">
+        <label class="label-text" for="exampleFormControlTextarea1"
+          >Deje aqui sus comentarios (No mayor a 500 palabras)</label
+        >
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="5"
+        ></textarea>
+      </div>
+    </form>
+
+    <form action="">
+      <div class="form-group">
+        <p id="trataientodatos">
+          Sanchez Soluciones te informa sobre su Política de Privacidad respecto
+          del tratamiento y protección de los datos de carácter personal de los
+          usuarios y clientes que puedan ser recabados por la navegación o
+          contratación de servicios a través del presente sitio Web. En este
+          sentido, el Titular garantiza el cumplimiento de la normativa vigente
+          en materia de protección de datos personales, reflejada en la Ley
+          Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales
+          y de Garantía de Derechos Digitales (LOPD GDD). Cumple también con el
+          Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de
+          abril de 2016 relativo a la protección de las personas físicas (RGPD).
+          El uso de sitio Web implica la aceptación de esta Política de
+          Privacidad así como las condiciones incluidas en el Aviso Legal.
+        </p>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="invalidCheck2"
+            required
+            (click)="Terminos()"
+          />
+          <label class="form-check-label" for="invalidCheck2">
+            Acepto terminos y condiciones
+          </label>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!check">
+        Publicar
+      </button>
+    </form>
+    <div class="row egeneral">
+      <div class="col-sm-6">
+        <div class="card Ucontacto">
+          <div class="card-body">
+            <h5 class="card-title">Nombres y apellidos + "Dijo"</h5>
+            <p class="card-text">Contenido escrito por el usuario</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

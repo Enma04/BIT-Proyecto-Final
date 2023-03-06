@@ -1,0 +1,30 @@
+body.egeneral {
+    margin: 3%;
+    border-radius: 15%;
+    background-image: url(../../../assets/FondoZonaPrivada.jpeg);
+}
+
+div.egeneral {
+    margin: 3%;
+    border-radius: 15%;
+}
+
+div.Ucontacto {
+    margin: 3%;
+    background-image: url(../../../assets/FondoZonaPrivada.jpeg);
+}
+
+.contenedor{
+    width: 80%;
+    margin: 25px auto ;
+    padding: 1%;
+}
+
+#contactenos-h4{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.label-text{
+    font-size: 20px;
+}
