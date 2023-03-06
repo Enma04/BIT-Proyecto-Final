@@ -10,6 +10,9 @@ const { response } = require("express");
 var usuariosRutas = require(__dirname +
   "/controladores/controladorUsuarios.js").controladorUsuariosExport;
 
+var productosRutas = require(__dirname +
+  "/controladores/controladorProductos.js").controladorProductosExport;
+
 //Middlewear valida que la sesión esté activa para usar alguna appi
 var validarSesion = function (peticion, respuesta, next) {
   if (
