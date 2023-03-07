@@ -92,7 +92,7 @@ app.use(cors_VAR({
 
 var sha256 = require('SHA256');
 const { Store, Cookie } = require('express-session');
-console.log("La palabra 'Hola' se codifica: ", sha256("Hola"));
+//console.log("La palabra 'Hola' se codifica: ", sha256("Hola"));
 
 
 

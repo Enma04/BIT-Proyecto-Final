@@ -22,22 +22,13 @@ productosController.GuardarProducto = function (peticion, respuesta) {
   //VALIDACIONES DE LOS DATOS
   //CEDULA
   if (
-    data.codigo == "" ||
-    data.codigo == null ||
-    data.codigo == undefined ||
-    data.codigo == " "
-  ) {
+    data.codigo == "" || data.codigo == null || data.codigo == undefined || data.codigo == " ") {
     respuesta.json({ state: false, mensaje: "El campo código es obligatorio" });
     return false;
   }
 
   //CÓDIGO PRODUCTO
-  if (
-    data.nombre == "" ||
-    data.nombre == null ||
-    data.nombre == undefined ||
-    data.nombre == " "
-  ) {
+  if (data.nombre == "" || data.nombre == null || data.nombre == undefined || data.nombre == " ") {
     respuesta.json({
       state: false,
       mensaje: "El campo nombre es obligatorio",
@@ -46,12 +37,7 @@ productosController.GuardarProducto = function (peticion, respuesta) {
   }
 
   //NOMBRE
-  if (
-    data.name == "" ||
-    data.name == null ||
-    data.name == undefined ||
-    data.name == " "
-  ) {
+  if (data.name == "" || data.name == null || data.name == undefined || data.name == " ") {
     respuesta.json({ state: false, mensaje: "El campo name es obligatorio" });
     return false;
   }
@@ -65,11 +51,7 @@ productosController.GuardarProducto = function (peticion, respuesta) {
 
   //PRECIO
   if (
-    data.precio == "" ||
-    data.precio == null ||
-    data.precio == undefined ||
-    data.precio == " "
-  ) {
+    data.precio == "" || data.precio == null || data.precio == undefined || data.precio == " ") {
     respuesta.json({
       state: false,
       mensaje: "El campo precio es obligatorio",
@@ -105,11 +87,7 @@ productosController.ModificarProducto = function (peticion, respuesta) {
   //VALIDACIONES
   //CEDULA
   if (
-    data.cedula == "" ||
-    data.cedula == null ||
-    data.cedula == undefined ||
-    data.cedula == " "
-  ) {
+    data.cedula == "" || data.cedula == null || data.cedula == undefined || data.cedula == " ") {
     respuesta.json({ state: false, mensaje: "El campo cedula es obligatorio" });
     return false;
   }
@@ -129,11 +107,7 @@ productosController.ModificarProducto = function (peticion, respuesta) {
 
   //EDAD
   if (
-    data.edad == "" ||
-    data.edad == null ||
-    data.edad == undefined ||
-    data.edad == " "
-  ) {
+    data.edad == "" || data.edad == null || data.edad == undefined || data.edad == " ") {
     respuesta.json({ state: false, mensaje: "El campo edad es obligatorio" });
     return false;
   }
@@ -153,11 +127,7 @@ productosController.EliminarProducto = function (peticion, respuesta) {
   //VALIDACIONES
   //CEDULA
   if (
-    data.cedula == "" ||
-    data.cedula == null ||
-    data.cedula == undefined ||
-    data.cedula == " "
-  ) {
+    data.cedula == "" || data.cedula == null || data.cedula == undefined || data.cedula == " ") {
     respuesta.json({ state: false, mensaje: "El campo cedula es obligatorio" });
     return false;
   }
