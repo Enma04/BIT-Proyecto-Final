@@ -119,30 +119,30 @@
     <h3 id="title-h3">REGISTRO DE USUARIO</h3>
     <div class="form-row">
       <div class="col-md-4 mb-3">
-        <label for="validationDefault01">Nombre </label>
+        <label for="registronombre">Nombre </label>
         <input
           type="text"
           class="form-control"
-          id="validationDefault01"
+          id="registronombre"
           [(ngModel)]="nombre"
           required
           placeholder="example name"
         />
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationDefault03">Apellido</label>
+        <label for="registroapellido">Apellido</label>
         <input
           type="text"
           class="form-control"
-          id="validationDefault03"
+          id="registroapellido"
           [(ngModel)]="apellido"
           required
           placeholder="example last name"
         />
       </div>
       <div class="form-group col-md-4 mb-3">
-        <label for="disabledSelect1">Tipo identificación</label>
-        <select id="disabledSelect1" class="form-control">
+        <label for="registrotipoid">Tipo identificación</label>
+        <select id="registrotipoid" class="form-control">
           <option></option>
           <option>Cedula</option>
           <option>Cedula extranjeria</option>
@@ -151,16 +151,18 @@
         </select>
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationDefault05">Numero documento identificación</label>
+        <label for="registroidentificacion"
+          >Numero documento identificación</label
+        >
         <input
           type="text"
           class="form-control"
-          id="validationDefault05"
+          id="registroidentificacion"
           [(ngModel)]="cedula"
         />
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationDefaultUsername">E-mail</label>
+        <label for="registroemail">E-mail</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroupPrepend2">@</span>
@@ -168,7 +170,7 @@
           <input
             type="email"
             class="form-control"
-            id="validationDefaultUsername"
+            id="registroemail"
             [(ngModel)]="email"
             required
             placeholder="example@mail.com"
@@ -176,11 +178,11 @@
         </div>
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationDefault06">Telefono</label>
+        <label for="registrotelefono">Telefono</label>
         <input
           type="text"
           class="form-control"
-          id="validationDefault06"
+          id="registrotelefono"
           [(ngModel)]="telefono"
           required
         />
@@ -189,11 +191,11 @@
 
     <div class="form-row">
       <div class="col-md-4 mb-3">
-        <label for="validationDefault07">Edad</label>
+        <label for="registroedad">Edad</label>
         <input
           type="number"
           class="form-control"
-          id="validationDefault07"
+          id="registroedad"
           [(ngModel)]="edad"
           min="18"
           max="105"
@@ -204,20 +206,20 @@
       </div>
 
       <div class="col-md-4 mb-3">
-        <label for="validationDefault08">Dirección</label>
+        <label for="registrodireccion">Dirección</label>
         <input
           type="text"
           class="form-control"
-          id="validationDefault08"
+          id="registrodireccion"
           [(ngModel)]="direccion"
           required
         />
       </div>
 
       <div class="form-group col-md-4 mb-3">
-        <label for="disabledSelect">Estado civil</label>
+        <label for="registroestadocivil">Estado civil</label>
         <select
-          id="disabledSelect"
+          id="registroestadocivil"
           class="form-control"
           [(ngModel)]="estadocivil"
         >
@@ -231,20 +233,20 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-6 mb-3">
-        <label for="password">Contraseña</label>
+        <label for="registropassword">Contraseña</label>
         <input
           type="password"
           class="form-control"
-          id="password"
+          id="registropassword"
           [(ngModel)]="password"
         />
       </div>
       <div class="form-group col-md-6 mb-3">
-        <label for="password2">Confirmar Contraseña</label>
+        <label for="registropassword2">Confirmar Contraseña</label>
         <input
           type="password"
           class="form-control"
-          id="password2"
+          id="registropassword2"
           [(ngModel)]="password_check"
         />
       </div>

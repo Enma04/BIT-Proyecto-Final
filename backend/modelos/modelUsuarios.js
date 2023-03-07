@@ -44,30 +44,48 @@ const instancia = new miModelo();
 
 //LÓGICA DE LA API CREATE
 usuariosModel.Guardar = function (data, callback) {
-  //DATOS ALMACENADOS EN BASE DE DATOS
-  instancia.cedula = data.cedula;
-  instancia.nombre = data.name;
-  instancia.apellido = data.apellido;
-  instancia.edad = data.edad;
-  instancia.direccion = data.direccion;
-  instancia.telefono = data.telefono;
-  instancia.estadocivil = data.estadocivil;
-  instancia.email = data.email;
-  instancia.password = SHA256(data.password + configuracion.pass);
-  instancia.rol = 2;
 
-  instancia.save((error, correcto) => {
-    if (error) {
-      console.log(error);
-      return callback({ state: false, mensaje: error });
-    } else {
-      console.log(correcto);
-      return callback({
-        state: true,
-        mensaje: "Usuario registrado correctamente",
-      });
-    }
-  });
+  miModelo.find(
+    { email: data.email}, {}, (error, documentos) => {
+      if (error) {
+        console.log(error);
+        return callback({ state: false, mensaje: error });
+      }
+      else {
+        if (documentos.length > 0) {
+          //Devuelve el documento json
+          return callback({ state: false, mensaje: "Este correo electrónico ya está registrado" });
+        }
+        else {
+          //DATOS ALMACENADOS EN BASE DE DATOS
+          instancia.cedula = data.cedula;
+          instancia.nombre = data.name;
+          instancia.apellido = data.apellido;
+          instancia.edad = data.edad;
+          instancia.direccion = data.direccion;
+          instancia.telefono = data.telefono;
+          instancia.estadocivil = data.estadocivil;
+          instancia.email = data.email;
+          instancia.password = SHA256(data.password + configuracion.pass);
+          instancia.rol = 2;
+
+          instancia.save((error, correcto) => {
+            if (error) {
+              console.log(error);
+              return callback({ state: false, mensaje: error });
+            } else {
+              console.log(correcto);
+              return callback({
+                state: true,
+                mensaje: "Usuario registrado correctamente",
+              });
+            }
+          }); //Fin de la función para guardar la instancia
+        }
+      }
+    } //Fin del callback
+  ); //Fin de la búsqueda
+
 }; //Fin api CREATE
 
 //LÓGICA DE LA API READ
