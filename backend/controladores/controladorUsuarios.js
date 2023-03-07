@@ -42,12 +42,7 @@ usuariosController.Guardar = function (peticion, respuesta) {
 
   //VALIDACIONES DE LOS DATOS
   //CEDULA
-  if (
-    data.cedula == "" ||
-    data.cedula == null ||
-    data.cedula == undefined ||
-    data.cedula == " "
-  ) {
+  if (data.cedula == "" || data.cedula == null || data.cedula == undefined || data.cedula == " ") {
     respuesta.json({ state: false, mensaje: "El campo cedula es obligatorio" });
     return false;
   }
@@ -68,11 +63,7 @@ usuariosController.Guardar = function (peticion, respuesta) {
 
   //NOMBRE
   if (
-    data.name == "" ||
-    data.name == null ||
-    data.name == undefined ||
-    data.name == " "
-  ) {
+    data.name == "" || data.name == null || data.name == undefined || data.name == " ") {
     respuesta.json({ state: false, mensaje: "El campo name es obligatorio" });
     return false;
   }
@@ -85,12 +76,7 @@ usuariosController.Guardar = function (peticion, respuesta) {
   }
 
   //APELLIDO
-  if (
-    data.apellido == "" ||
-    data.apellido == null ||
-    data.apellido == undefined ||
-    data.apellido == " "
-  ) {
+  if (data.apellido == "" || data.apellido == null || data.apellido == undefined || data.apellido == " ") {
     respuesta.json({
       state: false,
       mensaje: "El campo apellido es obligatorio",
@@ -107,11 +93,7 @@ usuariosController.Guardar = function (peticion, respuesta) {
 
   //EDAD
   if (
-    data.edad == "" ||
-    data.edad == null ||
-    data.edad == undefined ||
-    data.edad == " "
-  ) {
+    data.edad == "" || data.edad == null || data.edad == undefined || data.edad == " ") {
     respuesta.json({ state: false, mensaje: "El campo edad es obligatorio" });
     return false;
   }

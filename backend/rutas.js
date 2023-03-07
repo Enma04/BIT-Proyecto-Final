@@ -92,17 +92,14 @@ app.post("/Cliente/CerrarSesion", function (peticion, respuesta) {
 });
 
 // Api para definir opciones del menú lateral
-app.post(
-  "/Cliente/MenuDefinido",
-  validarSesion,
-  function (peticion, respuesta) {
+app.post("/Cliente/MenuDefinido", validarSesion, function (peticion, respuesta) {
     usuariosRutas.MenuDefinido(peticion, respuesta);
   }
 );
 
 /*
 ---------------------//---------------------------------//-------------- 
-------------//--------------APIS PRODUCTOS DE TIPO (C.R.U.D)-----------//--------- 
+------------//--------------APIS SERVICIOS DE TIPO (C.R.U.D)-----------//--------- 
 ---------------------//---------------------------------//--------------
 */
 
@@ -113,8 +110,7 @@ app.post("/Servicio/GuardarProducto", function (peticion, respuesta) {
 
 // Api READ
 app.post(
-  "/Servicio/ListarProductos",
-  /*validarSesion, */ function (peticion, respuesta) {
+  "/Servicio/ListarProductos", /*validarSesion, */ function (peticion, respuesta) {
     productosRutas.ListarProductos(peticion, respuesta);
   }
 );

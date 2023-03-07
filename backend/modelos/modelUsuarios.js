@@ -64,7 +64,7 @@ usuariosModel.Guardar = function (data, callback) {
       console.log(correcto);
       return callback({
         state: true,
-        mensaje: "Usuario guardado correctamente",
+        mensaje: "Usuario registrado correctamente",
       });
     }
   });
