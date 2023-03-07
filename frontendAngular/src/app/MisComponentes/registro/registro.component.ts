@@ -256,7 +256,7 @@ export class RegistroComponent implements OnInit {
             this.email = "";
             this.password = "";
 
-            this.ListarUsuarios();
+            //this.ListarUsuarios();
             this.dir.navigate(["/Login"]); //Enviamos al usuario al Login
           }
         })

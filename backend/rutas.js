@@ -7,20 +7,14 @@
 
 const { response } = require("express");
 
-var usuariosRutas = require(__dirname +
-  "/controladores/controladorUsuarios.js").controladorUsuariosExport;
+var usuariosRutas = require(__dirname + "/controladores/controladorUsuarios.js").controladorUsuariosExport;
 
-var productosRutas = require(__dirname +
-  "/controladores/controladorProductos.js").controladorProductosExport;
+var productosRutas = require(__dirname + "/controladores/controladorProductos.js").controladorProductosExport;
 
 //Middlewear valida que la sesión esté activa para usar alguna appi
 var validarSesion = function (peticion, respuesta, next) {
   if (
-    peticion.session._id == undefined ||
-    peticion.session._id == "" ||
-    peticion.session._id == null ||
-    peticion.session._id == " "
-  ) {
+    peticion.session._id == undefined || peticion.session._id == "" || peticion.session._id == null || peticion.session._id == " ") {
     respuesta.json({
       state: false,
       mensaje: "Su sesión ha caducado, por favor ingrese nuevamente",
