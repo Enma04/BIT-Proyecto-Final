@@ -20,32 +20,20 @@ productosController.GuardarProducto = function (peticion, respuesta) {
   };
 
   //VALIDACIONES DE LOS DATOS
-  //CEDULA
+  //CÓDIGO PRODUCTO
   if (
     data.codigo == "" || data.codigo == null || data.codigo == undefined || data.codigo == " ") {
     respuesta.json({ state: false, mensaje: "El campo código es obligatorio" });
     return false;
   }
 
-  //CÓDIGO PRODUCTO
+  //NOMBRE PRODUCTO
   if (data.nombre == "" || data.nombre == null || data.nombre == undefined || data.nombre == " ") {
-    respuesta.json({
-      state: false,
-      mensaje: "El campo nombre es obligatorio",
-    });
+    respuesta.json({ state: false, mensaje: "El campo nombre es obligatorio" });
     return false;
   }
-
-  //NOMBRE
-  if (data.name == "" || data.name == null || data.name == undefined || data.name == " ") {
-    respuesta.json({ state: false, mensaje: "El campo name es obligatorio" });
-    return false;
-  }
-  if (data.name.length < 4 || data.name.length > 20) {
-    respuesta.json({
-      state: false,
-      mensaje: "El campo name debe tener entre 4 y 20 caracteres",
-    });
+  if (data.nombre.length < 4 || data.nombre.length > 20) {
+    respuesta.json({ state: false, mensaje: "El campo nombre debe tener entre 4 y 20 caracteres" });
     return false;
   }
 
@@ -59,14 +47,14 @@ productosController.GuardarProducto = function (peticion, respuesta) {
     return false;
   }
 
-  modelUsuario.GuardarProducto(data, function (res) {
+  modelProductos.GuardarProducto(data, function (res) {
     respuesta.json(res);
   });
 }; //Fin api Guardar
 
 //Api ListarProductos
 productosController.ListarProductos = function (peticion, respuesta) {
-  modelUsuario.ListarProductos(null, function (res) {
+  modelProductos.ListarProductos(null, function (res) {
     respuesta.json(res);
   });
 }; //Fin api Listar productos
@@ -113,7 +101,7 @@ productosController.ModificarProducto = function (peticion, respuesta) {
   }
 
   //Respuesta del servidor
-  modelUsuario.ModificarProducto(data, function (res) {
+  modelProductos.ModificarProducto(data, function (res) {
     respuesta.json(res);
   });
 }; //Fin api Modificar
@@ -133,7 +121,7 @@ productosController.EliminarProducto = function (peticion, respuesta) {
   }
 
   //Respuesta del servidor
-  modelUsuario.EliminarProducto(data, function (res) {
+  modelProductos.EliminarProducto(data, function (res) {
     respuesta.json(res);
   });
 }; //Fin api Eiliminar

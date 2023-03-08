@@ -39,9 +39,7 @@ app.post("/Cliente/Guardar", function (peticion, respuesta) {
 });
 
 // Api READ
-app.post(
-  "/Cliente/ListarUsuarios",
-  /*validarSesion, */ function (peticion, respuesta) {
+app.post("/Cliente/ListarUsuarios", /*validarSesion, */ function (peticion, respuesta) {
     usuariosRutas.ListarUsuarios(peticion, respuesta);
   }
 );

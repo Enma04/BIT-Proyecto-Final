@@ -65,11 +65,11 @@
               />
             </div>
             <div class="col-md-12 mb-3">
-              <label for="name">Nombre</label>
+              <label for="productname">Nombre</label>
               <input
                 type="text"
                 class="form-control"
-                id="name"
+                id="productname"
                 [(ngModel)]="nombre"
                 required
                 placeholder="Name of service visible to client"
@@ -121,7 +121,12 @@
           </div>
           <div class="botones-reg">
             <div class="boton-func">
-              <button class="btn btn-primary" type="submit" [disabled]="!check">
+              <button
+                class="btn btn-primary"
+                type="submit"
+                [disabled]="!check"
+                (click)="RegistrarProducto()"
+              >
                 Añadir
               </button>
             </div>
