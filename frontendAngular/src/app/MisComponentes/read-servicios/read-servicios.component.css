@@ -1,0 +1,31 @@
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+.botones{
+    padding: 8px;
+    background-color: white;
+    border-radius: 8px;
+    border: 0.5px solid rgba(255, 110, 84, 0.904);
+}
+
+.botones:hover {
+    background-color: white;
+    border-radius: 8px;
+    background-color: rgba(255, 110, 84, 0.904);
+    border: solid 0.5px bisque;
+    box-shadow: 3px 4px 5px 0px rgb(0 0 0 / 47%);
+}
+
+.icon{
+    fill: rgba(255, 110, 84, 0.904);
+}
+
+.botones:hover .icon{
+    fill: aliceblue;
+}

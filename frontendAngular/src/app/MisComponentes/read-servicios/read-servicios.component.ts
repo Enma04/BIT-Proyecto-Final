@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MensajesService } from 'src/app/servicios/mensajes.service';
 import { PeticionService } from 'src/app/servicios/peticion.service';
@@ -11,7 +11,7 @@ declare var $: any;
   templateUrl: './read-servicios.component.html',
   styleUrls: ['./read-servicios.component.css']
 })
-export class ReadServiciosComponent {
+export class ReadServiciosComponent implements OnInit {
 
 
 
@@ -35,6 +35,15 @@ export class ReadServiciosComponent {
 //CONSTRUCTOR DE LA CLASE
 //--------------------------------------------------------------------
   constructor(private PeticionDeLlegada: PeticionService, private dir: Router, public msj: MensajesService ){}
+
+
+
+//--------------------------------------------------------------------
+//INICIALIZADOR DE LA CLASE
+//--------------------------------------------------------------------
+  ngOnInit(): void {
+    this.ListarProductos();
+  }
 
 
 
