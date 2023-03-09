@@ -107,14 +107,13 @@ carritoController.ActualizarCantidad = function (peticion, respuesta) {
 carritoController.EliminarItem = function (peticion, respuesta) {
 
   let data = {
-    codigo: peticion.body.codigo,
+    _id: peticion.body.carrito_id,
   };
 
   //VALIDACIONES
   //CODIGO
-  if (
-    data.codigo == "" || data.codigo == null || data.codigo == undefined || data.codigo == " ") {
-    respuesta.json({ state: false, mensaje: "El campo código es obligatorio" });
+  if (data._id == "" || data._id == null || data._id == undefined || data._id == " ") {
+    respuesta.json({ state: false, mensaje: "El campo _id es obligatorio" });
     return false;
   }
 
