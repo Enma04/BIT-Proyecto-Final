@@ -338,7 +338,7 @@ usuariosController.MenuDefinido = function (peticion, respuesta) {
         { nombre: "Dashboard", destino: "/Dashboard" },
         { nombre: "Mi Perfil", destino: "/Perfil" },
         { nombre: "Actualizar Datos", destino: "/Usuario" },
-        { nombre: "Ver Servicios", destino: "/ReadServicios" },
+        { nombre: "Admin. Servicios", destino: "/ReadServicios" },
       ],
     });
   } //Fin rol 1
