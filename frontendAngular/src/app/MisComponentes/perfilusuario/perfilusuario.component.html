@@ -109,6 +109,15 @@
     >
       Actualizar mis datos
     </button>
+    <button
+      *ngIf="admin"
+      type="submit"
+      class="boton centrarobj btn-outline-primary"
+      routerLink="/Usuario"
+      (click)="EliminarCuenta()"
+    >
+      Eliminar mi cuenta
+    </button>
   </div>
 
   <!-- Fin de la ventana flotante -->
