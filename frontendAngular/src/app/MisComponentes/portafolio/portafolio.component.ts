@@ -92,12 +92,24 @@ ngOnInit(): void {
     //Petición de tipo Post
     this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
       (respuesta: any) => {
+        
         console.log(respuesta);
-        //this.DatosPrpductos = respuesta.data;
+
+        if (respuesta.state == false) {
+          //Cargamos el mensaje de peligro, si falta un campo
+          this.msj.Cargar("danger", respuesta.mensaje, 4000);
+        }
+        else {
+          //Cargamos el mensaje exitoso
+          this.msj.Cargar("success", respuesta.mensaje, 4000);
+        }
+
+        
       })
   } //Fin de la función para añadir al carrito
   
 
+  //Funciones para añadir productos al carrito
   elemento1(){ 
     this.producto_id = this.DatosPrpductos[0]._id;
     console.log("producto_id = " + this.producto_id);
@@ -128,4 +140,6 @@ ngOnInit(): void {
     console.log("producto_id = " + this.producto_id);
     this.AdicionarAlCarrito();
   }
-}
+
+
+} //Fin de la clase
