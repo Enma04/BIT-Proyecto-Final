@@ -108,15 +108,16 @@ productosController.ModificarProducto = function (peticion, respuesta) {
 
 //Api Eliminar
 productosController.EliminarProducto = function (peticion, respuesta) {
+
   let data = {
-    cedula: peticion.body.cedula,
+    codigo: peticion.body.codigo,
   };
 
   //VALIDACIONES
-  //CEDULA
+  //CODIGO
   if (
-    data.cedula == "" || data.cedula == null || data.cedula == undefined || data.cedula == " ") {
-    respuesta.json({ state: false, mensaje: "El campo cedula es obligatorio" });
+    data.codigo == "" || data.codigo == null || data.codigo == undefined || data.codigo == " ") {
+    respuesta.json({ state: false, mensaje: "El campo código es obligatorio" });
     return false;
   }
 

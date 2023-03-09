@@ -4,42 +4,26 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <h5>Agregar servicio</h5>
         <button class="botones" type="submit" (click)="CargarModal()">
-          <svg class="icon icon-plus">
+        <!-- <svg class="icon icon-plus">
             <symbol id="icon-plus" viewBox="-1 0 32 32">
               <path
                 d="M31 12h-11v-11c0-0.552-0.448-1-1-1h-6c-0.552 0-1 0.448-1 1v11h-11c-0.552 0-1 0.448-1 1v6c0 0.552 0.448 1 1 1h11v11c0 0.552 0.448 1 1 1h6c0.552 0 1-0.448 1-1v-11h11c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1z"
               ></path>
             </symbol>
             <use xlink:href="#icon-plus"></use>
-          </svg>
+          </svg> -->
+          Agregar servicio
         </button>
       </div>
       <div class="col-sm">
-        <h5>Actualizar servicio</h5>
-        <button class="botones" type="submit" (click)="CargarModal()">
-          <svg class="icon icon-plus">
-            <symbol id="icon-plus" viewBox="-1 0 32 32">
-              <path
-                d="M31 12h-11v-11c0-0.552-0.448-1-1-1h-6c-0.552 0-1 0.448-1 1v11h-11c-0.552 0-1 0.448-1 1v6c0 0.552 0.448 1 1 1h11v11c0 0.552 0.448 1 1 1h6c0.552 0 1-0.448 1-1v-11h11c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1z"
-              ></path>
-            </symbol>
-            <use xlink:href="#icon-plus"></use>
-          </svg>
+        <button class="botones" type="submit" (click)="CargarModal3()">
+          Actualizar servicio
         </button>
       </div>
       <div class="col-sm">
-        <h5>Eliminar servicio</h5>
-        <button class="botones" type="submit" (click)="CargarModal()">
-          <svg class="icon icon-plus">
-            <symbol id="icon-plus" viewBox="-1 0 32 32">
-              <path
-                d="M31 12h-11v-11c0-0.552-0.448-1-1-1h-6c-0.552 0-1 0.448-1 1v11h-11c-0.552 0-1 0.448-1 1v6c0 0.552 0.448 1 1 1h11v11c0 0.552 0.448 1 1 1h6c0.552 0 1-0.448 1-1v-11h11c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1z"
-              ></path>
-            </symbol>
-            <use xlink:href="#icon-plus"></use>
-          </svg>
+        <button class="botones" type="submit" (click)="CargarModal2()">
+          Eliminar servicio
         </button>
       </div>
     </div>
@@ -71,10 +55,10 @@
 <!-- Modal Registrar Servicio -->
 <div
   class="modal fade"
-  id="exampleModalCenter"
+  id="registroModal"
   tabindex="-1"
   role="dialog"
-  aria-labelledby="exampleModalCenterTitle"
+  aria-labelledby="registroModalTitle"
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-top" role="document">
@@ -93,7 +77,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <div id="registro2">
+        <div>
           <div class="form-row">
             <div class="col-md-12 mb-3">
               <label for="code">Código </label>
@@ -133,7 +117,7 @@
             </div>
           </div>
           <div class="form-group">
-            <p id="tratamiento-datos">
+            <p class="tratamiento-datos">
               Sanchez Soluciones te informa sobre su Política de Privacidad
               respecto del tratamiento y protección de los datos de carácter
               administrativo y de servicios que puedan ser recabados por la
@@ -167,10 +151,210 @@
               <button
                 class="btn btn-primary"
                 type="submit"
-                [disabled]="!check"
+                [disabled]="check"
                 (click)="RegistrarProducto()"
               >
                 Añadir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Eliminar Servicio -->
+<div
+  class="modal fade"
+  id="eliminarModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="eliminarModalTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-top" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="titulo-modal">
+          <h4>ELIMINAR UN SERVICIO</h4>
+        </div>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="code2">Código </label>
+              <input
+                type="number"
+                class="form-control"
+                id="code2"
+                min="0"
+                [(ngModel)]="codigo"
+                required
+                placeholder="code area"
+              />
+              <small id="emailHelp" class="form-text text-muted">
+                por favor ingrese el código del producto que desea eliminar.
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkBox"
+                (click)="Terminos2()"
+                required
+              />
+              <label class="form-check-label" for="checkBox">
+                Acepto términos y condiciones
+              </label>
+            </div>
+          </div>
+          <div class="botones-reg">
+            <div class="boton-func">
+              <button
+                class="btn btn-primary"
+                type="submit"
+                [disabled]="check2"
+                (click)="EliminarProducto()"
+              >
+                Eliminar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Actualizar Servicio -->
+<div
+  class="modal fade"
+  id="actualizarModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="actualizarModalTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-top" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="titulo-modal">
+          <h4>ACTUALIZAR UN SERVICIO</h4>
+        </div>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="code3">Código </label>
+              <input
+                type="number"
+                class="form-control"
+                id="code3"
+                min="0"
+                [(ngModel)]="codigo"
+                required
+                placeholder="code area"
+              />
+              <small id="emailHelp" class="form-text text-muted">
+                por favor ingrese el código del producto que desea actualizar.
+              </small>
+            </div>
+            <div class="boton-search">
+              <button
+                class="btn btn-primary"
+                type="submit"
+                (click)="BuscarProducto()"
+              >
+                Buscar
+              </button>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="productname3">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="productname3"
+                [(ngModel)]="nombre"
+                required
+                placeholder="Name of service visible to client"
+                disabled
+              />
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="precio3">Precio</label>
+              <input
+                type="number"
+                class="form-control"
+                id="precio3"
+                min="0"
+                step="1000"
+                placeholder="Value of service"
+                required
+                [(ngModel)]="precio"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkBox3"
+                (click)="Terminos3()"
+                required
+              />
+              <label class="form-check-label" for="checkBox3">
+                Acepto términos y condiciones
+              </label>
+            </div>
+          </div>
+          <div class="botones-reg">
+            <div class="boton-func">
+              <button
+                class="btn btn-primary"
+                type="submit"
+                [disabled]="check3"
+                (click)="ActualizarProducto()"
+              >
+                Actualizar
               </button>
             </div>
           </div>

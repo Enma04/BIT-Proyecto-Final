@@ -23,7 +23,9 @@ export class ReadServiciosComponent implements OnInit {
   nombre: string = "";
   precio!: number;
 
-  check: boolean = false;
+  check: boolean = true;
+  check2: boolean = true;
+  check3: boolean = true;
   DatosPrpductos: any[] = [];
 
 
@@ -54,18 +56,59 @@ export class ReadServiciosComponent implements OnInit {
 //FUNCIONES DE LA CLASE
 //--------------------------------------------------------------------
 
+  //Funciones de los Modales
   //Función para validar la aceptación de los términos y condiciones
   Terminos() {
     this.check = !this.check;
   } //Fin Función Terminos()
 
+  //Función para validar la aceptación de los términos y condiciones
+  Terminos2() {
+    this.check2 = !this.check2;
+  } //Fin Función Terminos()
+
+  //Función para validar la aceptación de los términos y condiciones
+  Terminos3() {
+    this.check3 = !this.check3;
+  } //Fin Función Terminos()
+
   //Función qque caga la ventana modal
   CargarModal() {
-    $('#exampleModalCenter').modal('show');
+    $('#registroModal').modal('show');
   }
 
+  //Función qque caga la ventana modal
+  CargarModal2() {
+    $('#eliminarModal').modal('show');
+  }
+
+  //Función qque caga la ventana modal
+  CargarModal3() {
+    $('#actualizarModal').modal('show');
+  }
+
+
+  //Funciones del CRUD
+
+  //Funcion para conectarse al Backend y listar lso usuarios
+  ListarProductos() {
+    let post = {
+      host: this.PeticionDeLlegada.url_local,
+      path: "/Servicio/ListarProductos",
+      payload:{}
+    }
+
+    //Petición de tipo Post
+    this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
+      (respuesta: any) => {
+        console.log(respuesta);
+        this.DatosPrpductos = respuesta.data;
+      })
+
+  } //Fin de la función: ListarUsuarios()
+
   //VALIDAR DATOS FRONTEND
-  ValidacionDatosFront():boolean {
+  ValidacionRegistro():boolean {
 
 
     //VALIDACIONES DE LOS DATOS
@@ -122,7 +165,7 @@ export class ReadServiciosComponent implements OnInit {
 
 
     //VALIDAMOS LA INFORMACIÓN PARA SABER SI SE LE PASA AL BACKEND
-    if (this.ValidacionDatosFront()) {
+    if (this.ValidacionRegistro()) {
       //Petición de tipo Post
       this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
         (respuesta: any) => {
@@ -140,28 +183,46 @@ export class ReadServiciosComponent implements OnInit {
             this.nombre = "";
             this.precio = 0;
 
-            //this.ListarUsuarios();
-            //this.dir.navigate(["/Login"]); //Enviamos al usuario al Login
+            this.ListarProductos();
+            $('#registrarModal').modal('hide');
           }
         })
     }
   } //Fin Función Registrar()
-  
-  //Funcion para conectarse al Backend y listar lso usuarios
-  ListarProductos() {
+
+  EliminarProducto() {
+
     let post = {
       host: this.PeticionDeLlegada.url_local,
-      path: "/Servicio/ListarProductos",
-      payload:{}
+      path: "/Servicio/EliminarProducto",
+      payload: {
+        codigo      : this.codigo,
+      }
     }
 
-    //Petición de tipo Post
-    this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
-      (respuesta: any) => {
-        console.log(respuesta);
-        this.DatosPrpductos = respuesta.data;
-      })
 
-  } //Fin de la función: ListarUsuarios()
+  //Petición de tipo Post
+  this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
+    (respuesta: any) => {
 
-}
+      if (respuesta.state == false) {
+
+        this.msj.Cargar("danger", respuesta.mensaje, 4000);
+      }
+      else {
+        //Cargamos el mensaje exitoso
+        this.msj.Cargar("success", respuesta.mensaje, 4000);
+
+        this.codigo = 0;
+
+        this.ListarProductos();
+        $('#eliminarModal').modal('hide');
+      }
+    })
+  }
+
+  BuscarProducto(){}
+
+  ActualizarProducto(){}
+
+} //Fin de la clase
