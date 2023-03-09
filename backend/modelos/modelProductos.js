@@ -49,7 +49,7 @@ productosModel.GuardarProducto = function (data, callback) {
 //LÓGICA DE LA API READ
 productosModel.ListarProductos = function (data, callback) {
   //find({criterio de búsqueda},{datos que se quieren ver o ocultar},{})
-  miModelo.find({}, { _id: 0, __v: 0, password: 0 }, (error, documentos) => {
+  miModelo.find({}, { _id: 1, __v: 0, password: 0 }, (error, documentos) => {
     if (error) {
       console.log(error);
       return callback({ state: false, mensaje: error });
