@@ -122,11 +122,9 @@ app.post("/Servicio/GuardarProducto", function (peticion, respuesta) {
 });
 
 // Api READ
-app.post(
-  "/Servicio/ListarProductos", /*validarSesion, */ function (peticion, respuesta) {
-    productosRutas.ListarProductos(peticion, respuesta);
-  }
-);
+app.post("/Servicio/ListarProductos", /*validarSesion, */ function (peticion, respuesta) {
+  productosRutas.ListarProductos(peticion, respuesta);
+});
 
 // Api UPDATE
 app.post("/Servicio/ModificarProducto", function (peticion, respuesta) {
@@ -164,7 +162,7 @@ app.post("/Servicio/ListarServicio", function (peticion, respuesta) {
 
 // Api CREATE
 app.post("/Carrito/AdicionarAlCarrito", function (peticion, respuesta) {
-  carritoRutas.AdicionarAlCarrit(peticion, respuesta);
+  carritoRutas.AdicionarAlCarrito(peticion, respuesta);
 });
 
 // Api READ

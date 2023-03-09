@@ -1,7 +1,6 @@
 var productosController = {};
 
-var modelProductos = require(__dirname +
-  "/../modelos/modelProductos.js").modelProductosExport;
+var modelProductos = require(__dirname + "/../modelos/modelProductos.js").modelProductosExport;
 
 /*
 ---------------------//---------------------------------//-------------- 
