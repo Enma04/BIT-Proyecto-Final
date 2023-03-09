@@ -76,11 +76,8 @@ productosModel.ModificarProducto = function (data, callback) {
         //return callback({ state: false, mensaje: "Usuario encontrado" });
 
         miModelo.findOneAndUpdate(
-          { codigo: documentos[0].codigo },
+          { _id: documentos[0]._id },
           {
-            // Para actualizar por _id es lo mismo pero se coloca así:
-            // miModelo.findById(data.cedula, {
-
             //Datos que se actualizan
             nombre: data.nombre,
             precio: data.precio,
@@ -93,7 +90,7 @@ productosModel.ModificarProducto = function (data, callback) {
               console.log(productoActualizado);
               return callback({
                 state: true,
-                mensaje: "Producto actualizado correctamente",
+                mensaje: "Servicio actualizado correctamente",
                 data: productoActualizado,
               });
             }

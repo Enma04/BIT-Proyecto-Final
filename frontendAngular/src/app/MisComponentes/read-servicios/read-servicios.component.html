@@ -313,7 +313,7 @@
                 [(ngModel)]="nombre"
                 required
                 placeholder="Name of service visible to client"
-                disabled
+                [disabled]="actualizar"
               />
             </div>
             <div class="col-md-12 mb-3">
@@ -327,6 +327,7 @@
                 placeholder="Value of service"
                 required
                 [(ngModel)]="precio"
+                [disabled]="actualizar"
               />
             </div>
           </div>
