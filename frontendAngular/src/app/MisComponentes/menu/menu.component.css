@@ -14,7 +14,7 @@
 }
 
 .nav-link {
-    color: rgb(90, 88, 88);
+    color: rgb(102, 92, 92) !important;
     font-size: 20px;
     height: 100%;
     padding: 20px;
@@ -22,7 +22,7 @@
 }
 
 .nav-link:hover{
-    color: rgb(24, 86, 255);
+    color: rgb(24, 86, 255)  !important;
     text-decoration:underline;
 }
 
