@@ -43,7 +43,7 @@ ngOnInit(): void {
 //FUNCIONES DE LA CLASE
 //--------------------------------------------------------------------
 
-  //Funcion para conectarse al Backend y listar lso usuarios
+  //Funcion para conectarse al Backend y listar lso servicios
   ListarProductos() {
     let post = {
       host: this.PeticionDeLlegada.url_local,
@@ -79,6 +79,7 @@ ngOnInit(): void {
 
   } //Fin función: MostrarCookies()
 
+  //Función para añadir artículos al carrito
   AdicionarAlCarrito(){
     let post = {
       host: this.PeticionDeLlegada.url_local,
@@ -94,13 +95,37 @@ ngOnInit(): void {
         console.log(respuesta);
         //this.DatosPrpductos = respuesta.data;
       })
-  }
+  } //Fin de la función para añadir al carrito
   
 
-  elemento1(){ this.producto_id = this.DatosPrpductos[0]._id; console.log("producto_id = " + this.producto_id); }
-  elemento2(){ this.producto_id = this.DatosPrpductos[1]._id; console.log("producto_id = " + this.producto_id); }
-  elemento3(){ this.producto_id = this.DatosPrpductos[2]._id; console.log("producto_id = " + this.producto_id); }
-  elemento4(){ this.producto_id = this.DatosPrpductos[3]._id; console.log("producto_id = " + this.producto_id); }
-  elemento5(){ this.producto_id = this.DatosPrpductos[4]._id; console.log("producto_id = " + this.producto_id); }
-  elemento6(){ this.producto_id = this.DatosPrpductos[5]._id; console.log("producto_id = " + this.producto_id); }
+  elemento1(){ 
+    this.producto_id = this.DatosPrpductos[0]._id;
+    console.log("producto_id = " + this.producto_id);
+    this.AdicionarAlCarrito();
+  }
+  elemento2(){ 
+    this.producto_id = this.DatosPrpductos[1]._id;
+    console.log("producto_id = " + this.producto_id);
+    this.AdicionarAlCarrito();
+  }
+  elemento3(){ 
+    this.producto_id = this.DatosPrpductos[2]._id;
+    console.log("producto_id = " + this.producto_id);
+    this.AdicionarAlCarrito();
+  }
+  elemento4(){ 
+    this.producto_id = this.DatosPrpductos[3]._id;
+    console.log("producto_id = " + this.producto_id);
+    this.AdicionarAlCarrito();
+  }
+  elemento5(){ 
+    this.producto_id = this.DatosPrpductos[4]._id;
+    console.log("producto_id = " + this.producto_id);
+    this.AdicionarAlCarrito();
+  }
+  elemento6(){ 
+    this.producto_id = this.DatosPrpductos[5]._id;
+    console.log("producto_id = " + this.producto_id);
+    this.AdicionarAlCarrito();
+  }
 }
