@@ -43,21 +43,45 @@ carritoModel.AdicionarAlCarrito = function (data, callback) {
 
 //LÓGICA DE LA API READ
 carritoModel.ListarMiCarrito = function (data, callback) {
-//find({criterio de búsqueda},{datos que se quieren ver o ocultar},{})
-miModelo.find({}, { _id: 0, __v: 0, password: 0 }, (error, documentos) => {
-    if (error) {
-    console.log(error);
-    return callback({ state: false, mensaje: error });
-    } else {
-    console.log(documentos);
-    return callback({
-        state: true,
-        mensaje: "Lista de carrito",
-        data: documentos,
-    });
-    }
-});
-//return callback({ state: true, datos });
+
+    //Debemos hacer unso de un "aggregate", para enlazar los usuarios con productos y el carrito
+    miModelo.aggregate([
+        //Filtramos solo los elementos de este usuario
+        { $match: { usuario_id:mongoose.Types.ObjectId( data.usuario_id ) } },
+        {
+            //Hacemos la unión de las tablas con las colecciones
+            $lookup:{
+                //Nos enlazamos con productos por medio de esta sentencia "from"
+                from: "productos",
+                //Campo local del modelo del carrito
+                localField: "producto_id",
+                //Campo del destino
+                foreignField: "_id",
+                //alias de la unión
+                as: "productos"
+            }
+        },
+
+        { $unwind: "$productos" }, //para que no se muestre como array sinó como un objeto
+
+        {
+            $project:{
+                _id:1, producto_id:1, productos:{codigo:1, nombre:1, precio:1 } //campos que queremos mostrar
+            }
+        }
+
+
+    ], (error,documentos) => {
+        if(error){
+            return callback({ state:false, error:error });
+        }
+        else{
+            return callback({ state:true, data:documentos });
+        }
+
+
+    }) //FIN DEL AGGREGATE
+
 }; //Fin api READ
 
 //LÓGICA DE LA API UPDATE

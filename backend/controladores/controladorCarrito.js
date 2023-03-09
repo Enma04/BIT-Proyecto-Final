@@ -50,9 +50,21 @@ carritoController.AdicionarAlCarrito = function (peticion, respuesta) {
 
 //Api ListarProductos
 carritoController.ListarMiCarrito = function (peticion, respuesta) {
-  modelCarrito.ListarMiCarrito(null, function (res) {
-    respuesta.json(res);
-  });
+
+    let data = {
+        usuario_id   : peticion.session._id,
+    };
+
+    //VALIDACIONES DE LOS DATOS
+    //ID DEL USUARIO
+    if (data.usuario_id == "" || data.usuario_id == null || data.usuario_id == undefined || data.usuario_id == " ") {
+        respuesta.json({ state: false, mensaje: "El campo usuario Id es obligatorio", data: "hola " + peticion.session._id });
+        return false;
+    }
+
+    modelCarrito.ListarMiCarrito(data, function (res) {
+        respuesta.json(res);
+    });
 }; //Fin api Listar productos
 
 //Api Modificar
