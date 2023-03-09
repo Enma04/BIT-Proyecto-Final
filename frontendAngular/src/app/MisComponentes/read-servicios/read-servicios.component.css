@@ -7,6 +7,21 @@
     fill: currentColor;
 }
 
+.title-h3{
+    text-align: center;
+    color: brown;
+    font-family: sans-serif;
+    font-weight: 600;
+    margin: 0;
+    padding: 20px;
+}
+
+.centrar{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
 .botones{
     cursor: pointer;
     padding: 8px;
