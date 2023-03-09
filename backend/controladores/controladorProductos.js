@@ -127,6 +127,36 @@ productosController.EliminarProducto = function (peticion, respuesta) {
   });
 }; //Fin api Eiliminar
 
+
+//---------------------------------------------------------------------------------------
+// API'S ADICIONALES
+//---------------------------------------------------------------------------------------
+
+//Api ListarUsuario, tipo READ de 1 usuario
+productosController.ListarProducto = function (peticion, respuesta) {
+  let data = { codigo: peticion.body.codigo };
+
+  if (
+    data.codigo == "" ||
+    data.codigo == null ||
+    data.codigo == undefined ||
+    data.codigo == " "
+  ) {
+    respuesta.json({
+      state: false,
+      mensaje: "El campo código no puede estar vacío",
+    });
+    return false;
+  } else {
+    modelProductos.ListarProducto(data, function (res) {
+      console.log(res);
+      respuesta.json(res);
+    });
+  }
+}; //Fin api Listar usuario
+
+
+
 //---------------------------------------------------------------------------------------
 //EXPORTAMOS LA VARIABLE QUE CONTIENE LA INFORMACIÓN
 //---------------------------------------------------------------------------------------

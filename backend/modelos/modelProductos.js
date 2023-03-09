@@ -141,6 +141,40 @@ productosModel.EliminarProducto = function (data, eliminacion) {
   }); // Fin del find()
 }; //Fin api DELETE
 
+
+
+//---------------------------------------------------------------------------------------
+// API'S ADICIONALES
+//---------------------------------------------------------------------------------------
+
+//API READ DE 1 SOLO USUARIO
+productosModel.ListarProducto = function (data, callback) {
+  //find({criterio de búsqueda},{datos que se quieren ver o ocultar},{})
+  miModelo.find({ codigo: data.codigo }, { __v: 0 }, (error, documentos) => {
+    if (error) {
+      console.log(error);
+      return callback({ state: false, mensaje: error });
+    } else {
+      if (documentos.length > 0) {
+        console.log(documentos);
+        return callback({
+          state: true,
+          mensaje: "Servicio encontrado! ",
+          data: documentos,
+        });
+      } //Fin del if de length
+      else {
+        return callback({ state: false, mensaje: "Servicio no registrado!" });
+      }
+    }
+  });
+}; //Fin api READ de 1 solo campo
+
+
+
+
+
+
 //---------------------------------------------------------------------------------------
 //EXPORTAMOS LA VARIABLE QUE CONTIENE LA INFORMACIÓN
 //---------------------------------------------------------------------------------------

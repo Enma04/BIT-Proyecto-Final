@@ -26,6 +26,9 @@ export class ReadServiciosComponent implements OnInit {
   check: boolean = true;
   check2: boolean = true;
   check3: boolean = true;
+  actualizar: boolean = false;
+
+  servicio: any[] = [];
   DatosPrpductos: any[] = [];
 
 
@@ -221,8 +224,38 @@ export class ReadServiciosComponent implements OnInit {
     })
   }
 
-  BuscarProducto(){}
+  BuscarProducto(){
+    let post = {
+      host: this.PeticionDeLlegada.url_local,
+      path: "/Servicio/ListarServicio",
+      payload:{
+        codigo: this.codigo,
+      }
+    }
 
-  ActualizarProducto(){}
+    //Petición de tipo Post
+    this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
+      (respuesta: any) => {
+
+        console.log(respuesta);
+
+        if (respuesta.state == false) {
+          //Cargamos el mensaje de peligro, si falta un campo
+          this.msj.Cargar("danger", respuesta.mensaje, 4000);
+        }
+        else {
+          //Cargamos el mensaje exitoso
+          this.msj.Cargar("success", respuesta.mensaje, 4000);
+
+          this.servicio = respuesta.data;
+          this.actualizar = true;
+        }
+
+      })
+  }
+
+  ActualizarServicio(){
+    
+  }
 
 } //Fin de la clase

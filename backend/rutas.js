@@ -27,6 +27,13 @@ var validarSesion = function (peticion, respuesta, next) {
   }
 };
 
+
+
+
+
+
+
+
 /*
 ---------------------//---------------------------------//-------------- 
 ------------//--------------APIS USUARIO DE TIPO (C.R.U.D)-----------//--------- 
@@ -53,6 +60,9 @@ app.post("/Cliente/Modificar", function (peticion, respuesta) {
 app.post("/Cliente/Eliminar", function (peticion, respuesta) {
   usuariosRutas.Eliminar(peticion, respuesta);
 });
+
+
+
 
 //---------------------------------------------------------------------------------------
 // API'S ADICIONALES
@@ -89,6 +99,15 @@ app.post("/Cliente/MenuDefinido", validarSesion, function (peticion, respuesta) 
   }
 );
 
+
+
+
+
+
+
+
+
+
 /*
 ---------------------//---------------------------------//-------------- 
 ------------//--------------APIS SERVICIOS DE TIPO (C.R.U.D)-----------//--------- 
@@ -116,6 +135,30 @@ app.post("/Servicio/ModificarProducto", function (peticion, respuesta) {
 app.post("/Servicio/EliminarProducto", function (peticion, respuesta) {
   productosRutas.EliminarProducto(peticion, respuesta);
 });
+
+
+
+
+//---------------------------------------------------------------------------------------
+// API'S ADICIONALES
+//---------------------------------------------------------------------------------------
+
+// Api READ de 1 Servicio
+app.post("/Servicio/ListarServicio", function (peticion, respuesta) {
+  productosRutas.ListarProducto(peticion, respuesta);
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 //--------------------------------------------------------------------------
 //PRUEBAS PARA VER EN POSTMAN
