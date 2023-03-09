@@ -11,6 +11,8 @@ var usuariosRutas = require(__dirname + "/controladores/controladorUsuarios.js")
 
 var productosRutas = require(__dirname + "/controladores/controladorProductos.js").controladorProductosExport;
 
+var carritoRutas = require(__dirname + "/controladores/controladorCarrito.js").controladorCarritoExport;
+
 //Middlewear valida que la sesión esté activa para usar alguna appi
 var validarSesion = function (peticion, respuesta, next) {
   if (
@@ -151,6 +153,35 @@ app.post("/Servicio/ListarServicio", function (peticion, respuesta) {
 
 
 
+
+
+
+/*
+---------------------//---------------------------------//--------------------------//--------- 
+------------//--------------APIS DEL CARRITO DE COMPRAS DE TIPO (C.R.U.D)-----------//--------- 
+---------------------//---------------------------------//--------------------------//---------
+*/
+
+// Api CREATE
+app.post("/Carrito/AdicionarAlCarrito", function (peticion, respuesta) {
+  carritoRutas.AdicionarAlCarrit(peticion, respuesta);
+});
+
+// Api READ
+app.post("/Carrito/ListarMiCarrito", /*validarSesion, */ function (peticion, respuesta) {
+    carritoRutas.ListarMiCarrito(peticion, respuesta);
+  }
+);
+
+// Api UPDATE
+app.post("/Carrito/ActualizarCantidad", function (peticion, respuesta) {
+  carritoRutas.ActualizarCantidad(peticion, respuesta);
+});
+
+// Api DELETE
+app.post("/Carrito/EliminarItem", function (peticion, respuesta) {
+  carritoRutas.EliminarItem(peticion, respuesta);
+});
 
 
 
