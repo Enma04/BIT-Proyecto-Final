@@ -15,6 +15,8 @@ export class ProductosComponent implements OnInit {
 
   carrito_id: any;
   producto_id: any;
+  codigo: any;
+  check: boolean = true;
   DatosCarrito: any[] = [];
 
 
@@ -49,6 +51,13 @@ ngOnInit(): void {
 //FUNCIONES DE LA CLASE
 //--------------------------------------------------------------------
 
+  Terminos(){
+    this.check = !this.check;
+  }
+
+  ModalEliminar(){}
+
+
   //Funcion para conectarse al Backend y listar lso usuarios
   ListarCarrito() {
     let post = {
@@ -62,6 +71,25 @@ ngOnInit(): void {
       (respuesta: any) => {
         console.log(respuesta);
         this.DatosCarrito = respuesta.data;
+      })
+
+  } //Fin de la función: ListarCarrito()
+
+  //Funcion para conectarse al Backend y listar lso usuarios
+  CarritoEliminar() {
+    let post = {
+      host: this.PeticionDeLlegada.url_local,
+      path: "/Carrito/EliminarItem",
+      payload:{
+        codigo: this.codigo,
+      }
+    }
+
+    //Petición de tipo Post
+    this.PeticionDeLlegada.Post(post.host + post.path, post.payload).then(
+      (respuesta: any) => {
+        console.log(respuesta);
+        //this.DatosCarrito = respuesta.data;
       })
 
   } //Fin de la función: ListarServicios()

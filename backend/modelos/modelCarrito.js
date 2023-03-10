@@ -126,7 +126,7 @@ miModelo.find({ codigo: data.codigo }, {}, (error, documentos) => {
 //LÓGICA DE LA API DELETE
 carritoModel.EliminarItem = function (data, eliminacion) {
 
-    miModelo.findByIdAndDelete(data._id, (error, servicioCarritoEliminado) => {
+/*     miModelo.findByIdAndDelete(data._id, (error, servicioCarritoEliminado) => {
 
             if (error) {
                 console.log(error);
@@ -141,7 +141,40 @@ carritoModel.EliminarItem = function (data, eliminacion) {
                 });
             }
         }
-    ); //Fin findByIdAndDelete
+    ); //Fin findByIdAndDelete */
+
+
+    miModelo.find({ codigo: data.codigo }, {}, (error, documentos) => {
+        //Devuelve un array[] con los datos en la posicion 0
+        if (error) {
+            return callback({ state: false, mensaje: error });
+        }
+        else {
+            if (documentos.length > 0) {
+            //return callback({ state: false, mensaje: "Usuario encontrado" });
+    
+                miModelo.findByIdAndDelete(documentos[0]._id, (error, servicioEliminado) => {
+
+                    if (error) {
+                        console.log(error);
+                        return eliminacion({ state: false, mensaje: error });
+                    }
+                    else {
+                        console.log(servicioEliminado);
+                        return eliminacion({
+                        state: true,
+                        mensaje: "Servicio eliminado correctamente",
+                        data: servicioEliminado,
+                        });
+                    }
+                }); //Fin findByIdAndDelete
+            } //Fin del if de length
+            else {
+                return eliminacion({ state: false, mensaje: "Código de servicio no encontrado" });
+            }
+        }
+    }); // Fin del find()
+
 }; //Fin api DELETE
 
 

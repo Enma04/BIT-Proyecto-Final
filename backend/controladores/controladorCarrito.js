@@ -106,7 +106,7 @@ carritoController.ActualizarCantidad = function (peticion, respuesta) {
 //Api Eliminar
 carritoController.EliminarItem = function (peticion, respuesta) {
 
-  let data = {
+  /* let data = {
     _id: peticion.body.carrito_id,
   };
 
@@ -115,7 +115,20 @@ carritoController.EliminarItem = function (peticion, respuesta) {
   if (data._id == "" || data._id == null || data._id == undefined || data._id == " ") {
     respuesta.json({ state: false, mensaje: "El campo _id es obligatorio" });
     return false;
+  } */
+
+
+  let data = {
+    codigo: peticion.body.codigo,
+  };
+
+  //VALIDACIONES
+  //CODIGO
+  if (data._id == "" || data._id == null || data._id == undefined || data._id == " ") {
+    respuesta.json({ state: false, mensaje: "El campo _id es obligatorio" });
+    return false;
   }
+
 
   //Respuesta del servidor
   modelCarrito.EliminarItem(data, function (res) {

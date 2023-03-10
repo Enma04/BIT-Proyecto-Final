@@ -37,11 +37,11 @@
               <tbody>
                 <tr>
                   <td class="font-weight-bold">Código</td>
-                  <td id="cedula">{{ DatosCarrito[0].productos.codigo }}</td>
+                  <td id="cedula">{{ item.productos.codigo }}</td>
                 </tr>
                 <tr>
                   <td class="font-weight-bold">Precio</td>
-                  <td id="apellido">{{ DatosCarrito[0].productos.precio }}</td>
+                  <td id="apellido">{{ item.productos.precio }}</td>
                 </tr>
               </tbody>
             </table>
@@ -51,13 +51,98 @@
       </div>
     </div>
   </div>
-  <button
+  <!-- <button
       type="submit"
       class="boton btn-outline-primary"
-      routerLink="/Usuario"
+      (click)="ModalEliminar()"
     >
       Eliminar servicio
-    </button>
+  </button> -->
+
+
+  <!-- Modal Eliminar Servicio -->
+<div
+class="modal fade"
+id="eliminarModal"
+tabindex="-1"
+role="dialog"
+aria-labelledby="eliminarModalTitle"
+aria-hidden="true"
+>
+<div class="modal-dialog modal-dialog-top" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="titulo-modal">
+        <h4>ELIMINAR UN SERVICIO</h4>
+      </div>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <div class="form-row">
+          <div class="col-md-12 mb-3">
+            <label for="code2">Código </label>
+            <input
+              type="number"
+              class="form-control"
+              id="code2"
+              min="0"
+              [(ngModel)]="codigo"
+              required
+              placeholder="code area"
+            />
+            <small id="emailHelp" class="form-text text-muted">
+              por favor ingrese el código del servicio que desea eliminar.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="checkBox"
+              (click)="Terminos()"
+              required
+            />
+            <label class="form-check-label" for="checkBox">
+              Acepto términos y condiciones
+            </label>
+          </div>
+        </div>
+        <div class="botones-reg">
+          <div class="boton-func">
+            <button
+              class="btn btn-primary"
+              type="submit"
+              [disabled]="check"
+              (click)="CarritoEliminar()"
+            >
+              Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
 
 <!-- Fin ventana flotante -->
 </div>

@@ -293,11 +293,11 @@
       </div>
 
       <!-- Botón Mostrar tabla -->
-      <div class="boton-func">
+      <!-- <div class="boton-func">
         <button type="submit" class="btn btn-primary" (click)="MostrarTabla()">
           Listar Usuarios
         </button>
-      </div>
+      </div> -->
     </div>
     <a routerLink="/Login"> ¿Ya tienes una cuenta? </a>
   </div>
@@ -307,12 +307,11 @@
     <thead class="thead-light">
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Cedula</th>
+        <th scope="col">Identificacion</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
         <th scope="col">Edad</th>
         <th scope="col">Correo</th>
-        <th scope="col">Contraseña</th>
       </tr>
     </thead>
     <tbody>
@@ -323,7 +322,6 @@
         <td>{{ item.apellido }}</td>
         <td>{{ item.edad }}</td>
         <td>{{ item.email }}</td>
-        <td>{{ item.password }}</td>
       </tr>
     </tbody>
   </table>
