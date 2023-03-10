@@ -1,3 +1,14 @@
+.card-body{
+    margin-bottom: 10px;
+    background-color: antiquewhite;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.card-title{
+    background-color: rgb(253, 223, 183);
+}
+
 div#serviciospropios {
     margin: 2%;
     border: solid 1px #ebebed;
